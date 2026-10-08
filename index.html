@@ -1,0 +1,3820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>manlikey4sh</title>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230B1220'/%3E%3Ctext x='50' y='70' font-family='Georgia, serif' font-style='italic' font-size='62' fill='%238FA9F2' text-anchor='middle'%3EY%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230B1220'/%3E%3Ctext x='50' y='70' font-family='Georgia, serif' font-style='italic' font-size='62' fill='%238FA9F2' text-anchor='middle'%3EY%3C/text%3E%3C/svg%3E">
+<meta name="description" content="manlikey4sh: a personal page with a daily math problem, a calculator and an interactive timeline of Earth.">
+<meta name="theme-color" content="#0B1220">
+<meta property="og:type" content="website">
+<meta property="og:title" content="manlikey4sh">
+<meta property="og:description" content="A personal page with a daily math problem, a calculator and an interactive timeline of Earth.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="manlikey4sh">
+
+<script>
+  (function () {
+    try {
+      var root = document.documentElement;
+      var theme = localStorage.getItem('site-theme');
+      var shade = JSON.parse(localStorage.getItem('site-shade') || 'null');
+      if (shade && shade.p) {
+        root.style.setProperty('--paper', shade.p);
+        root.style.setProperty('--paper-2', shade.p2);
+        root.setAttribute('data-theme', shade.t);
+      } else if (theme) {
+        root.setAttribute('data-theme', theme);
+      }
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+
+    --paper: #0B1220;
+    --paper-2: #131C2E;
+    --ink: #ECECF0;
+    --graphite: #9A9AA6;
+    --indigo: #82A4F5;
+    --indigo-soft: #82A4F520;
+    --accent2: #59DDCB;
+    --grid-line: rgba(255, 255, 255, 0.055);
+    --grid-line-strong: rgba(255, 255, 255, 0.11);
+
+    --display: "Outfit", "Helvetica Neue", system-ui, sans-serif;
+    --body-font: "Manrope", "Outfit", -apple-system, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+
+    --radius: 16px;
+    --radius-sm: 10px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.28), 0 2px 8px rgba(0, 0, 0, 0.18);
+    --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.34), 0 4px 12px rgba(0, 0, 0, 0.22);
+
+    --max-w: 560px;
+  }
+
+  :root[data-theme="light"] {
+    --paper: #F7F7F2;
+    --paper-2: #FFFFFF;
+    --ink: #14141F;
+    --graphite: #5B5B66;
+    --indigo: #33518F;
+    --indigo-soft: #33518F14;
+    --accent2: #1B8F82;
+    --grid-line: rgba(20, 20, 31, 0.07);
+    --grid-line-strong: rgba(20, 20, 31, 0.14);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Cline x1='13' y1='2' x2='13' y2='9' stroke='%238FA9F2' stroke-width='1.4'/%3E%3Cline x1='13' y1='17' x2='13' y2='24' stroke='%238FA9F2' stroke-width='1.4'/%3E%3Cline x1='2' y1='13' x2='9' y2='13' stroke='%238FA9F2' stroke-width='1.4'/%3E%3Cline x1='17' y1='13' x2='24' y2='13' stroke='%238FA9F2' stroke-width='1.4'/%3E%3Ccircle cx='13' cy='13' r='2.2' fill='none' stroke='%238FA9F2' stroke-width='1.3'/%3E%3C/svg%3E") 13 13, crosshair;
+  }
+
+  a, button, .link-row, .enter-gate {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Cline x1='13' y1='2' x2='13' y2='9' stroke='%2359DDCB' stroke-width='1.4'/%3E%3Cline x1='13' y1='17' x2='13' y2='24' stroke='%2359DDCB' stroke-width='1.4'/%3E%3Cline x1='2' y1='13' x2='9' y2='13' stroke='%2359DDCB' stroke-width='1.4'/%3E%3Cline x1='17' y1='13' x2='24' y2='13' stroke='%2359DDCB' stroke-width='1.4'/%3E%3Ccircle cx='13' cy='13' r='2.6' fill='%2359DDCB' stroke='none'/%3E%3C/svg%3E") 13 13, pointer;
+  }
+
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  }
+
+  .reveal-on-scroll.in-view {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-on-scroll {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  .hero-stagger {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+  }
+
+  .hero-stagger.in {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-stagger {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  .enter-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+                filter 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .enter-gate.hidden {
+    opacity: 0;
+    filter: blur(14px);
+    pointer-events: none;
+  }
+
+  .enter-gate-inner {
+    text-align: center;
+    transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .enter-gate.hidden .enter-gate-inner {
+    transform: scale(1.08);
+  }
+
+  .enter-gate-pi {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 64px;
+    color: var(--indigo);
+    line-height: 1;
+  }
+
+  .enter-gate-mark {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 34px;
+    color: var(--indigo);
+    line-height: 1;
+    margin-top: 14px;
+  }
+
+  #gate-handle {
+    display: inline-block;
+    background: linear-gradient(100deg, var(--ink) 30%, var(--indigo) 50%, var(--accent2) 62%, var(--ink) 82%);
+    background-size: 260% auto;
+    background-position: 0% center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: name-sheen 7s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #gate-handle { animation: none; }
+  }
+
+  .enter-gate-text {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--graphite);
+    margin-top: 18px;
+    padding: 0 32px;
+    max-width: 320px;
+    animation: gate-pulse 2.2s ease-in-out infinite;
+  }
+
+  @keyframes gate-pulse {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .enter-gate-text { animation: none; }
+  }
+
+  .wrap {
+    opacity: 0;
+    transition: opacity 1.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .wrap.revealed {
+    opacity: 1;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body-font);
+  }
+
+  body {
+    background-image: none;
+  }
+
+  #curve-field {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 96px 24px 64px;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 64px;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    width: 480px;
+    height: 480px;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, var(--indigo) 0%, transparent 68%);
+    opacity: 0.16;
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .avatar-frame {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin-bottom: 32px;
+    transition: transform 0.4s var(--ease);
+  }
+
+  .avatar-frame:hover {
+    transform: scale(1.035);
+  }
+
+  .avatar-frame svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .construction {
+    animation: spin 40s linear infinite;
+    transform-origin: 110px 110px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .construction { animation: none; }
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .discord-avatar {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 188px;
+    height: 188px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--paper-2);
+    border: 1px solid var(--grid-line-strong);
+  }
+
+  .discord-status-dot {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    bottom: 10px;
+    right: 10px;
+    background: var(--graphite);
+    border: 4px solid var(--paper);
+    transition: background 0.4s ease;
+  }
+
+  :root {
+    --glass-fill: rgba(255, 255, 255, 0.07);
+    --glass-fill-strong: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.20);
+    --glass-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  }
+
+  :root[data-theme="light"] {
+    --glass-fill: rgba(255, 255, 255, 0.45);
+    --glass-fill-strong: rgba(255, 255, 255, 0.68);
+    --glass-border: rgba(20, 20, 31, 0.14);
+    --glass-shadow: 0 24px 60px rgba(20, 20, 31, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  }
+
+  .glass-card {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto 40px;
+    border-radius: 26px;
+    padding: 26px 26px 22px;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    background: var(--glass-fill);
+    backdrop-filter: blur(12px) saturate(1.4);
+    -webkit-backdrop-filter: blur(12px) saturate(1.4);
+    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  }
+
+  .glass-card:hover { transform: translateY(-2px); }
+
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    inset: -45%;
+    background: var(--glass-glow-img, radial-gradient(circle, var(--indigo) 0%, transparent 60%));
+    background-size: cover;
+    background-position: center;
+    filter: blur(55px) saturate(1.6) brightness(0.85);
+    opacity: 0.55;
+    z-index: -2;
+    transform: scale(1.2);
+  }
+
+  :root[data-theme="light"] .glass-card::before {
+    filter: blur(55px) saturate(2.2) brightness(0.95) contrast(1.05);
+    opacity: 0.85;
+  }
+
+  .glass-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--glass-fill-strong) 0%, transparent 34%, transparent 70%, rgba(255, 255, 255, 0.06) 100%);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .glass-card-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .glass-avatar-wrap {
+    position: relative;
+    width: 74px;
+    height: 74px;
+    flex-shrink: 0;
+  }
+
+  .glass-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--paper-2);
+    border: 2px solid var(--glass-border);
+    display: block;
+  }
+
+  .glass-status-dot {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    bottom: -1px;
+    right: -1px;
+    background: var(--graphite);
+    border: 3px solid var(--paper-2);
+    transition: background 0.4s ease;
+  }
+
+  :root[data-theme="light"] .glass-status-dot { border-color: #fff; }
+
+  .glass-info { min-width: 0; text-align: left; }
+
+  .glass-username-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-wrap: wrap;
+  }
+
+  .glass-username {
+    font-family: var(--display);
+    font-weight: 600;
+    font-style: italic;
+    font-size: 23px;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+
+  .glass-badges {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 15px;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .glass-badge { display: inline-flex; align-items: center; gap: 4px; }
+  .glass-badge svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+  .glass-tag-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--glass-fill-strong);
+    border: 1px solid var(--glass-border);
+    border-radius: 7px;
+    padding: 3px 8px 3px 3px;
+    line-height: 1;
+  }
+
+  .glass-tag-icon {
+    width: 15px;
+    height: 15px;
+    border-radius: 4px;
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .glass-tag-text {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+
+  .glass-status-text {
+    margin-top: 12px;
+    font-family: var(--body-font);
+    font-weight: 600;
+    font-size: clamp(18px, 4.4vw, 22px);
+    line-height: 1.25;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .glass-status-cite {
+    margin-top: 6px;
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--graphite);
+    letter-spacing: 0.01em;
+  }
+
+  .glass-status-cite em { font-style: italic; }
+
+  @media (max-width: 400px) {
+    .glass-card { padding: 20px 18px 18px; }
+    .glass-avatar-wrap { width: 62px; height: 62px; }
+    .glass-username { font-size: 19px; }
+  }
+
+  .name {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(32px, 6vw, 44px);
+    letter-spacing: -0.01em;
+    margin: 0;
+    background: linear-gradient(100deg, var(--ink) 30%, var(--indigo) 50%, var(--accent2) 62%, var(--ink) 82%);
+    background-size: 260% auto;
+    background-position: 0% center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: name-sheen 7s ease-in-out infinite;
+  }
+
+  @keyframes name-sheen {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .name { animation: none; }
+  }
+
+  .type-cursor {
+    display: inline-block;
+    margin-left: 2px;
+    color: var(--indigo);
+    -webkit-text-fill-color: var(--indigo);
+    animation: type-cursor-blink 1s step-start infinite;
+  }
+
+  @keyframes type-cursor-blink {
+    50% { opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .type-cursor { animation: none; }
+  }
+
+  .countdown {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--graphite);
+    margin-top: 14px;
+    letter-spacing: 0.02em;
+  }
+
+  .countdown span {
+    color: var(--indigo);
+    font-weight: 500;
+  }
+
+  .volume-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--glass-fill);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 9px 16px 9px 12px;
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(10px) saturate(1.3);
+    -webkit-backdrop-filter: blur(10px) saturate(1.3);
+    transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease), border-color 0.3s var(--ease);
+  }
+
+  .volume-panel:hover {
+    box-shadow: var(--glass-shadow), 0 10px 24px rgba(0, 0, 0, 0.2);
+    border-color: var(--indigo);
+  }
+
+  .volume-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--indigo);
+    width: 18px;
+    height: 18px;
+    transition: transform 0.2s var(--ease), color 0.2s var(--ease);
+  }
+
+  .volume-icon:hover { color: var(--accent2); }
+  .volume-icon:active { transform: scale(0.88); }
+
+  .volume-icon svg { width: 18px; height: 18px; }
+
+  .volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 84px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--grid-line-strong);
+    outline: none;
+  }
+
+  .volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--indigo);
+    cursor: pointer;
+  }
+
+  .volume-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--indigo);
+    border: none;
+    cursor: pointer;
+  }
+
+  @media (max-width: 480px) {
+    .volume-panel { top: 12px; right: 12px; padding: 7px 12px 7px 10px; }
+    .volume-slider { width: 60px; }
+  }
+
+  .theme-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--glass-fill);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(10px) saturate(1.3);
+    -webkit-backdrop-filter: blur(10px) saturate(1.3);
+    color: var(--indigo);
+    transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease);
+  }
+
+  .theme-toggle:hover {
+    border-color: var(--indigo);
+    box-shadow: var(--glass-shadow), 0 10px 24px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+  }
+
+  .theme-toggle:active { transform: scale(0.9); }
+
+  .theme-toggle svg { width: 17px; height: 17px; transition: transform 0.4s var(--ease); }
+  .theme-toggle:hover svg { transform: rotate(-14deg); }
+
+  @media (max-width: 480px) {
+    .theme-toggle { top: 12px; left: 12px; width: 34px; height: 34px; }
+  }
+
+  .now-playing {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    background: var(--glass-fill);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    padding: 10px 18px 10px 12px;
+    max-width: 100%;
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(12px) saturate(1.3);
+    -webkit-backdrop-filter: blur(12px) saturate(1.3);
+    transition: box-shadow 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.3s var(--ease);
+  }
+
+  .now-playing:hover {
+    border-color: var(--indigo);
+    box-shadow: var(--glass-shadow), 0 10px 24px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+  }
+
+  .np-playpause {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--indigo-soft);
+    border: none;
+    color: var(--indigo);
+    flex-shrink: 0;
+    transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+  }
+
+  .np-playpause:hover { background: var(--indigo); color: var(--paper); }
+  .np-playpause:active { transform: scale(0.88); }
+
+  .np-playpause svg { width: 14px; height: 14px; }
+
+  .np-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    text-align: left;
+  }
+
+  .np-title {
+    font-family: var(--body-font);
+    font-weight: 500;
+    font-size: 12.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px;
+  }
+
+  .np-artist {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--graphite);
+    margin-top: 1px;
+  }
+
+  .np-progress-track {
+    width: 90px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--grid-line-strong);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .np-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--indigo);
+    transition: width 0.3s linear;
+  }
+
+  @media (max-width: 480px) {
+    .np-title { max-width: 96px; }
+    .np-progress-track { width: 56px; }
+  }
+
+  .problem-card {
+    position: relative;
+    background: var(--glass-fill);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(12px) saturate(1.3);
+    -webkit-backdrop-filter: blur(12px) saturate(1.3);
+    padding: 26px 26px 24px;
+    margin-bottom: 40px;
+    transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
+  }
+
+  .problem-card:hover {
+    box-shadow: var(--glass-shadow), 0 14px 34px rgba(0, 0, 0, 0.22);
+    transform: translateY(-2px);
+  }
+
+  .problem-eyebrow {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--graphite);
+    margin-bottom: 14px;
+  }
+
+  .problem-eyebrow .modline span { color: var(--indigo); }
+
+  .problem-doodle {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .problem-q {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0 0 16px;
+  }
+
+  .next-question-box {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--graphite);
+    background: var(--paper);
+    border: 1px solid var(--grid-line-strong);
+    border-radius: var(--radius-sm);
+    padding: 9px 13px;
+    line-height: 1.4;
+  }
+
+  .next-question-box .nq-time {
+    color: var(--accent2);
+    font-weight: 500;
+  }
+
+  .problem-streak {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--graphite);
+    margin-bottom: 12px;
+  }
+
+  .problem-streak .flame {
+    color: var(--accent2);
+    font-weight: 500;
+  }
+
+  .streak-history { margin: -4px 0 12px; }
+  .sh-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 24px);
+    gap: 5px;
+    width: max-content;
+    max-width: 100%;
+  }
+  .sh-day { font-family: var(--mono); font-size: 10px; color: var(--graphite); text-align: center; line-height: 1; }
+  .sh-cell { width: 24px; height: 24px; border-radius: 6px; background: var(--graphite); opacity: 0.16; }
+  .sh-cell.future { visibility: hidden; }
+  .sh-cell.s { background: var(--accent2); opacity: 1; }
+  .sh-cell.g { background: #D9645A; opacity: 0.85; }
+  .sh-cell.today { outline: 1px solid var(--indigo); outline-offset: 1px; }
+  .sh-legend {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px;
+    margin-top: 8px; font-family: var(--mono); font-size: 10.5px; color: var(--graphite);
+  }
+  .sh-legend i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 5px; vertical-align: baseline; }
+
+  .visit-line.loading { opacity: 0.6; }
+  .visit-retry {
+    font: inherit; color: var(--indigo); background: none; border: 0; padding: 0;
+    cursor: pointer; text-decoration: underline; text-underline-offset: 3px;
+  }
+  .visit-retry:focus-visible { outline: 2px solid var(--indigo); outline-offset: 2px; border-radius: 3px; }
+
+  .problem-answer {
+    font-family: var(--body-font);
+    font-size: 13.5px;
+    color: var(--graphite);
+    line-height: 1.6;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s var(--ease), opacity 0.3s var(--ease), margin-top 0.4s var(--ease);
+    margin-top: 0;
+    border-top: 1px dashed var(--grid-line-strong);
+    padding-top: 0;
+  }
+
+  .problem-answer.open {
+    max-height: 280px;
+    opacity: 1;
+    margin-top: 16px;
+    padding-top: 14px;
+  }
+
+  .problem-answer .ans-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent2);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .daily-feedback {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    min-height: 18px;
+    margin-bottom: 12px;
+    color: var(--graphite);
+  }
+
+  .daily-feedback.correct { color: var(--accent2); }
+  .daily-feedback.wrong { color: #E0716B; }
+
+  .calc-widget {
+    max-width: 340px;
+    margin: 0 0 14px;
+  }
+
+  .calc-display-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--paper);
+    border: 1px solid var(--grid-line-strong);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    margin-bottom: 10px;
+  }
+
+  .calc-mem-indicator {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--indigo);
+    background: var(--indigo-soft);
+    border-radius: 5px;
+    padding: 2px 6px;
+    opacity: 0;
+    transition: opacity 0.2s var(--ease);
+  }
+
+  .calc-mem-indicator.active { opacity: 1; }
+
+  .calc-op-indicator {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent2);
+    min-width: 14px;
+    text-align: center;
+  }
+
+  .calc-display {
+    flex: 1;
+    min-width: 0;
+    padding: 0;
+    font-family: var(--mono);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    text-align: right;
+    letter-spacing: 0.02em;
+    background: none;
+    border: 0;
+    outline: 0;
+  }
+
+  .calc-display::placeholder { color: var(--graphite); opacity: 0.6; font-size: 14px; letter-spacing: 0; }
+  .calc-display-row { transition: border-color 0.25s var(--ease); }
+  .calc-display-row:focus-within { border-color: var(--indigo); }
+  .calc-display-row .calc-submit { flex: none; padding: 8px 12px; }
+
+  .calc-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--indigo);
+    background: var(--indigo-soft);
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    padding: 9px 14px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+  }
+
+  .calc-toggle-btn:hover, .calc-toggle-btn:focus-visible {
+    border-color: var(--indigo);
+    transform: translateY(-1px);
+  }
+
+  .calc-toggle-btn .chev {
+    transition: transform 0.3s var(--ease);
+    display: inline-block;
+  }
+
+  .calc-toggle-btn[aria-expanded="true"] .chev {
+    transform: rotate(180deg);
+  }
+
+  .calc-grid-wrap {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s var(--ease), opacity 0.25s var(--ease);
+  }
+
+  .calc-grid-wrap.open {
+    max-height: 420px;
+    opacity: 1;
+  }
+
+  .calc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding-top: 2px;
+  }
+
+  .calc-btn {
+    font-family: var(--mono);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--grid-line-strong);
+    border-radius: var(--radius-sm);
+    padding: 12px 0;
+    cursor: pointer;
+    transition: background 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.15s var(--ease);
+  }
+
+  .calc-btn:hover, .calc-btn:focus-visible {
+    border-color: var(--indigo);
+    transform: translateY(-1px);
+  }
+
+  .calc-btn:active { transform: translateY(0); }
+
+  .calc-btn.calc-fn {
+    color: var(--indigo);
+    background: var(--indigo-soft);
+  }
+
+  .calc-btn.calc-op {
+    color: var(--accent2);
+    background: color-mix(in srgb, var(--accent2) 10%, transparent);
+    font-size: 17px;
+  }
+
+  .calc-btn.calc-equals {
+    grid-column: span 4;
+    color: var(--ink);
+    background: var(--grid-line-strong);
+    font-weight: 600;
+  }
+
+  .calc-btn.calc-submit {
+    color: var(--accent2);
+    background: color-mix(in srgb, var(--accent2) 14%, transparent);
+    border-color: var(--accent2);
+    font-weight: 600;
+    font-size: 12.5px;
+  }
+
+  .calc-btn.calc-submit:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .give-up-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--graphite);
+    background: none;
+    border: none;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 2px;
+  }
+
+  .give-up-link:hover { color: var(--ink); }
+
+  .daily-solved-badge {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--accent2);
+    background: color-mix(in srgb, var(--accent2) 12%, transparent);
+    border: 1px solid var(--accent2);
+    border-radius: var(--radius-sm);
+    padding: 9px 13px;
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+
+  .prob-card {
+    background: var(--glass-fill);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(12px) saturate(1.3);
+    -webkit-backdrop-filter: blur(12px) saturate(1.3);
+    padding: 26px 26px 24px;
+    margin-bottom: 40px;
+    transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
+  }
+
+  .prob-card:hover {
+    box-shadow: var(--glass-shadow), 0 14px 34px rgba(0, 0, 0, 0.22);
+    transform: translateY(-2px);
+  }
+
+  .prob-question {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 18px;
+    margin: 0 0 16px;
+  }
+
+  .prob-choices {
+    display: flex;
+    gap: 12px;
+  }
+
+  .prob-choice {
+    flex: 1;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--grid-line-strong);
+    border-radius: var(--radius-sm);
+    padding: 13px;
+    text-align: center;
+    transition: border-color 0.25s var(--ease), background 0.25s var(--ease), transform 0.25s var(--ease);
+  }
+
+  .prob-choice:hover,
+  .prob-choice:focus-visible {
+    border-color: var(--indigo);
+    background: var(--indigo-soft);
+    transform: translateY(-2px);
+  }
+
+  .prob-result {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent2);
+  }
+
+  .prob-sim-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--graphite);
+    margin-bottom: 14px;
+  }
+
+  .galton-canvas {
+    width: 100%;
+    height: 260px;
+    display: block;
+    border-radius: 3px;
+    margin-bottom: 14px;
+  }
+
+  .prob-legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--graphite);
+    margin-bottom: 14px;
+  }
+
+  .prob-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .prob-legend .swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  .prob-stats {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--graphite);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .prob-stats span { color: var(--indigo); }
+
+  .prob-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .prob-btn {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--indigo);
+    background: var(--indigo-soft);
+    border: 1px solid transparent;
+    border-radius: 3px;
+    padding: 8px 16px;
+    transition: border-color 0.2s ease;
+  }
+
+  .prob-btn:hover,
+  .prob-btn:focus-visible {
+    border-color: var(--indigo);
+    background: var(--indigo);
+    color: var(--paper);
+    transform: translateY(-1px);
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .link-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    background: var(--glass-fill);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(12px) saturate(1.3);
+    -webkit-backdrop-filter: blur(12px) saturate(1.3);
+    text-decoration: none;
+    color: var(--ink);
+    position: relative;
+    transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  }
+
+  .link-row:hover,
+  .link-row:focus-visible {
+    border-color: var(--indigo);
+    transform: translateX(3px) translateY(-2px);
+    box-shadow: var(--glass-shadow), 0 12px 28px rgba(0, 0, 0, 0.2);
+  }
+
+  .link-row:focus-visible {
+    outline: 2px solid var(--indigo);
+    outline-offset: 2px;
+  }
+
+  .link-tag {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--indigo);
+    min-width: 46px;
+    flex-shrink: 0;
+    text-align: center;
+    cursor: help;
+    display: inline-block;
+    transition: transform 0.3s var(--ease), color 0.3s var(--ease);
+  }
+
+  .link-row:hover .link-tag,
+  .link-row:focus-visible .link-tag {
+    transform: scale(1.12);
+    color: var(--accent2);
+  }
+
+  .link-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .link-label {
+    font-family: var(--body-font);
+    font-weight: 500;
+    font-size: 15.5px;
+  }
+
+  .link-sub {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--graphite);
+    margin-top: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .link-arrow {
+    font-family: var(--mono);
+    color: var(--graphite);
+    transition: transform 0.2s ease, color 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .link-row:hover .link-arrow,
+  .link-row:focus-visible .link-arrow {
+    transform: translateX(3px);
+    color: var(--indigo);
+  }
+
+  .footer {
+    margin-top: 56px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--graphite);
+  }
+
+  .footer .t {
+    color: var(--indigo);
+  }
+
+  .visit-line {
+    margin-bottom: 8px;
+  }
+
+  .visit-line .n {
+    color: var(--indigo);
+    font-weight: 500;
+  }
+
+  .visit-line .property {
+    color: var(--accent2);
+  }
+
+  .konami-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 28px;
+    transform: translateX(-50%) translateY(12px);
+    background: var(--glass-fill);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 12.5px;
+    padding: 12px 18px;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--glass-shadow);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+    z-index: 1000;
+  }
+
+  .konami-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .konami-symbol {
+    position: fixed;
+    top: -40px;
+    font-family: var(--display);
+    color: var(--indigo);
+    pointer-events: none;
+    z-index: 999;
+    animation: konami-fall linear forwards;
+  }
+
+  @keyframes konami-fall {
+    to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .konami-symbol { display: none; }
+  }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; transition: background-color 0.5s var(--ease), color 0.5s var(--ease); }
+  .reveal-on-scroll, .hero-stagger { will-change: opacity, transform; }
+  :focus-visible { outline: 2px solid var(--indigo); outline-offset: 3px; border-radius: 6px; }
+
+  .shade-toggle { left: 66px; }
+  .shade-toggle .shade-dot { width: 16px; height: 16px; border-radius: 50%; border: 2px solid currentColor; background: var(--paper); transition: background-color 0.5s var(--ease); }
+
+  .shade-panel {
+    position: fixed; top: 68px; left: 20px; z-index: 40; width: 232px; padding: 14px;
+    border-radius: 18px; background: var(--glass-fill-strong); border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow); backdrop-filter: blur(12px) saturate(1.4); -webkit-backdrop-filter: blur(12px) saturate(1.4);
+    opacity: 0; visibility: hidden; transform: translateY(-8px) scale(0.97); transform-origin: top left;
+    transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), visibility 0s linear 0.3s;
+  }
+  .shade-panel.open { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+  .shade-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--graphite); margin-bottom: 10px; }
+  .shade-row { display: flex; gap: 8px; align-items: center; }
+  .shade-picker { width: 38px; height: 38px; padding: 0; border: 1px solid var(--glass-border); border-radius: 10px; background: none; flex: none; }
+  .shade-picker::-webkit-color-swatch-wrapper { padding: 3px; }
+  .shade-picker::-webkit-color-swatch { border: 0; border-radius: 7px; }
+  .shade-picker::-moz-color-swatch { border: 0; border-radius: 7px; }
+  .shade-hex {
+    flex: 1; min-width: 0; height: 38px; padding: 0 10px; border-radius: 10px; font: 500 13px var(--mono); text-transform: uppercase;
+    color: var(--ink); background: var(--glass-fill); border: 1px solid var(--glass-border); transition: border-color 0.2s var(--ease);
+  }
+  .shade-hex:focus { outline: none; border-color: var(--indigo); }
+  .shade-hex.invalid { border-color: #E5594F; }
+  .shade-swatches { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin: 12px 0; justify-items: center; }
+  .shade-swatch { width: 24px; height: 24px; padding: 0; border-radius: 50%; border: 1px solid var(--glass-border); transition: transform 0.25s var(--ease); }
+  .shade-swatch:hover { transform: scale(1.15); }
+  .shade-reset { width: 100%; height: 32px; border-radius: 10px; font: 500 12px var(--mono); color: var(--graphite); background: transparent; border: 1px solid var(--glass-border); transition: color 0.2s, border-color 0.2s; }
+  .shade-reset:hover { color: var(--ink); border-color: var(--indigo); }
+
+  @media (max-width: 480px) {
+    .shade-toggle { left: 54px; }
+    .shade-panel { top: 56px; left: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    body, .shade-panel { transition: none; }
+  }
+
+  .np-progress-fill, #np-progress-fill { width: 100% !important; transform: scaleX(0); transform-origin: left center; transition: transform 0.3s linear; will-change: transform; }
+  #curve-field { transform: translateZ(0); }
+  .glass-card { will-change: transform; transform: translateZ(0); backface-visibility: hidden; }
+  .link-row, .problem-card { backface-visibility: hidden; }
+  .reveal-on-scroll, .hero-stagger { will-change: auto; }
+  .reveal-on-scroll:not(.in-view), .hero-stagger:not(.in) { will-change: opacity, transform; }
+  .reveal-on-scroll { transition-duration: 0.9s; transform: translateY(20px); }
+  .enter-gate { will-change: opacity; }
+  .enter-gate.hidden { filter: none; }
+  body { background-attachment: fixed; }
+  @media (max-width: 640px) {
+    .glass-card, .shade-panel { backdrop-filter: blur(10px) saturate(1.2); -webkit-backdrop-filter: blur(10px) saturate(1.2); }
+    .glass-card::before { filter: blur(32px) saturate(1.4) brightness(0.85); }
+  }
+
+  @property --g { syntax: '<number>'; inherits: false; initial-value: 0; }
+  html { scroll-behavior: smooth; }
+  * { font-synthesis: none; }
+  ::selection { background: var(--indigo); color: var(--paper); }
+  body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; transition: background-color 1s var(--ease), color 1s var(--ease); }
+  #curve-field { display: none !important; }
+  :root { --ease: cubic-bezier(0.16, 1, 0.3, 1); }
+  body::before {
+    content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(70% 50% at 50% -8%, color-mix(in srgb, var(--indigo) 17%, transparent), transparent 72%),
+      radial-gradient(55% 45% at 92% 108%, rgba(150, 110, 255, 0.10), transparent 72%),
+      radial-gradient(45% 40% at 4% 100%, rgba(70, 200, 190, 0.07), transparent 72%);
+    animation: breathe 16s ease-in-out infinite alternate; will-change: opacity;
+  }
+  @keyframes breathe { from { opacity: 0.7; } to { opacity: 1; } }
+  @keyframes rowIn {
+    from { opacity: 0; transform: translate3d(0, 34px, 0) scale(0.95); filter: blur(10px); clip-path: inset(0 0 100% 0 round 20px); }
+    to { opacity: 1; transform: none; filter: blur(0); clip-path: inset(-20px round 20px); }
+  }
+  #links-container:not(.rows-in) .link-row { opacity: 0; }
+  #links-container.rows-in .link-row { animation: rowIn 1.3s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 110ms); }
+  .glass-card, .link-row, .problem-card {
+    transition: --g 0.7s var(--ease), box-shadow 0.7s var(--ease), border-color 0.7s var(--ease), background-color 1s var(--ease);
+    background-image: radial-gradient(460px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--indigo) calc(var(--g) * 20%), transparent), transparent 62%);
+    background-repeat: no-repeat;
+  }
+  .reveal-on-scroll {
+    opacity: 0; filter: blur(14px); transform: perspective(1000px) translate3d(0, 64px, -60px) rotateX(16deg) scale(0.93); transform-origin: 50% 0; clip-path: inset(0 0 12% 0 round 24px);
+    transition: opacity 1.4s var(--ease), transform 1.6s var(--ease), filter 1.2s var(--ease), clip-path 1.6s var(--ease);
+  }
+  .reveal-on-scroll.in-view { opacity: 1; filter: blur(0); transform: none; clip-path: inset(-40px round 24px); }
+  .hero-stagger {
+    opacity: 0; filter: blur(10px); transform: translate3d(0, 26px, 0);
+    transition: opacity 1s var(--ease), transform 1.1s var(--ease), filter 1s var(--ease);
+  }
+  .hero-stagger.in { opacity: 1; filter: blur(0); transform: none; }
+  .link-row {
+    transition: --g 0.7s var(--ease), transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.7s var(--ease), border-color 0.7s var(--ease), background-color 1s var(--ease);
+    transition-delay: 0s, calc(var(--i, 0) * 0ms), 0s, 0s, 0s;
+  }
+  .link-row:hover { transform: translate3d(8px, -3px, 0) scale(1.012); }
+  .link-row:active { transform: translate3d(2px, 0, 0) scale(0.99); transition-duration: 0.15s; }
+  .enter-gate { transition: opacity 1.1s var(--ease), transform 1.4s var(--ease), visibility 0s linear 1.4s; }
+  .enter-gate.hidden { opacity: 0; transform: scale(1.06); }
+  .enter-gate.hidden .enter-gate-inner { opacity: 0; transform: scale(1.18); transition: opacity 0.8s var(--ease), transform 1.2s var(--ease); }
+  #scroll-bar { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 9999; background: linear-gradient(90deg, var(--indigo), #b894ff, #5fe0d2); transform: scaleX(0); transform-origin: left; pointer-events: none; will-change: transform; }
+  @media (prefers-reduced-motion: reduce) {
+    body::before { animation: none; }
+    #links-container:not(.rows-in) .link-row { opacity: 1; }
+    #links-container.rows-in .link-row { animation: none; }
+    .reveal-on-scroll, .hero-stagger { filter: none; transform: none; opacity: 1; transition: none; }
+  }
+
+  @keyframes fxIn { to { opacity: 1; } }
+  #fx { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; opacity: 0; animation: fxIn 2.4s var(--ease) 0.3s forwards; }
+  #spot { position: fixed; left: 0; top: 0; width: 700px; height: 700px; margin: -350px 0 0 -350px; border-radius: 50%; pointer-events: none; z-index: -1; opacity: 0; background: radial-gradient(circle, color-mix(in srgb, var(--indigo) 15%, transparent), transparent 66%); transition: opacity 1.4s var(--ease); will-change: transform; }
+  #spot.on { opacity: 1; }
+  @media (hover: none) { #spot { display: none; } }
+  body::before {
+    background:
+      radial-gradient(120% 90% at 50% 45%, transparent 55%, color-mix(in srgb, var(--paper) 62%, #000) 100%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E"),
+      radial-gradient(75% 55% at 50% -10%, color-mix(in srgb, var(--indigo) 46%, transparent), transparent 72%),
+      radial-gradient(55% 45% at 95% 105%, rgba(160, 110, 255, 0.34), transparent 72%),
+      radial-gradient(50% 42% at 2% 100%, rgba(60, 210, 195, 0.24), transparent 72%);
+  }
+  body::after {
+    content: ''; position: fixed; left: 50%; top: 42%; width: 190vmax; height: 190vmax; margin: -95vmax 0 0 -95vmax; z-index: -1; pointer-events: none;
+    background: conic-gradient(from 0deg, transparent 0deg, color-mix(in srgb, var(--indigo) 38%, transparent) 40deg, transparent 80deg, transparent 180deg, rgba(160, 110, 255, 0.28) 222deg, transparent 262deg, transparent 360deg);
+    -webkit-mask-image: radial-gradient(circle, transparent 0%, #000 14%, transparent 62%);
+    mask-image: radial-gradient(circle, transparent 0%, #000 14%, transparent 62%);
+    animation: sweep 70s linear infinite; will-change: transform; opacity: 1;
+  }
+  @keyframes sweep { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { body::after { animation: none; } }
+  body { background: transparent; }
+  html { transition: background-color 1s var(--ease); }
+  body::before { animation: none; }
+  body::after { width: 130vmax; height: 130vmax; margin: -65vmax 0 0 -65vmax; }
+  :root[data-theme="light"] body::before {
+    background:
+      radial-gradient(120% 90% at 50% 45%, transparent 60%, color-mix(in srgb, var(--paper) 90%, #000) 100%),
+      radial-gradient(75% 55% at 50% -10%, color-mix(in srgb, var(--indigo) 26%, transparent), transparent 70%),
+      radial-gradient(55% 45% at 95% 105%, rgba(120, 80, 235, 0.22), transparent 70%),
+      radial-gradient(50% 42% at 2% 100%, rgba(20, 160, 150, 0.18), transparent 70%);
+  }
+  :root[data-theme="light"] body::after {
+    background: conic-gradient(from 0deg, transparent 0deg, color-mix(in srgb, var(--indigo) 30%, transparent) 40deg, transparent 80deg, transparent 180deg, rgba(120, 80, 235, 0.26) 222deg, transparent 262deg, transparent 360deg);
+  }
+  :root[data-theme="light"] #spot { background: radial-gradient(circle, color-mix(in srgb, var(--indigo) 22%, transparent), transparent 66%); }
+  .enter-gate-text { min-height: 1.5em; }
+  .glass-card::before {
+    background:
+      radial-gradient(60% 60% at 24% 22%, var(--indigo), transparent 70%),
+      radial-gradient(55% 55% at 82% 80%, rgba(160, 110, 255, 0.85), transparent 70%),
+      radial-gradient(40% 40% at 70% 15%, rgba(70, 210, 195, 0.55), transparent 70%);
+    filter: blur(40px) saturate(1.4);
+    opacity: 0.5;
+  }
+  :root[data-theme="light"] .glass-card::before {
+    background:
+      radial-gradient(60% 60% at 24% 22%, var(--indigo), transparent 70%),
+      radial-gradient(55% 55% at 82% 80%, rgba(120, 80, 235, 0.7), transparent 70%),
+      radial-gradient(40% 40% at 70% 15%, rgba(20, 170, 160, 0.5), transparent 70%);
+    filter: blur(40px) saturate(1.5);
+    opacity: 0.55;
+  }
+  .earth-info { text-align: center; margin: 4px 0 12px; min-height: 92px; }
+  .earth-time { font-family: var(--mono); font-size: 11px; color: var(--indigo); letter-spacing: 0.08em; text-transform: uppercase; }
+  .earth-name { font-family: var(--display); font-size: 26px; font-weight: 500; margin: 2px 0 4px; color: var(--ink); }
+  .earth-desc { font-size: 13px; color: var(--graphite); max-width: 440px; margin: 0 auto; line-height: 1.5; }
+  #earth-slider { width: 100%; margin: 0 0 14px; accent-color: var(--indigo); cursor: pointer; }
+</style>
+</head>
+<body>
+
+<div class="enter-gate" id="enter-gate">
+  <div class="enter-gate-inner">
+    <div class="enter-gate-pi">&pi;</div>
+    <div class="enter-gate-mark"><span id="gate-handle"></span><span class="type-cursor" id="gate-cursor" aria-hidden="true">|</span></div>
+    <div class="enter-gate-text"><span id="gate-sub"></span><span class="type-cursor" id="gate-sub-cursor" aria-hidden="true" style="display:none">|</span></div>
+  </div>
+</div>
+
+<div id="youtube-embed" style="position:absolute; left:-9999px; top:-9999px; width:300px; height:166px;"></div>
+
+<div class="volume-panel">
+  <button class="volume-icon" id="volume-icon" aria-label="Mute or unmute">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="3 9 8 9 13 4 13 20 8 15 3 15" fill="currentColor" stroke="none"/>
+      <path id="volume-wave" d="M16 8.5a5 5 0 0 1 0 7"/>
+    </svg>
+  </button>
+  <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="55" aria-label="Volume">
+</div>
+
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle light or dark theme">
+  <svg id="theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+  <svg id="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+    <circle cx="12" cy="12" r="4"/>
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+  </svg>
+</button>
+
+
+<button class="theme-toggle shade-toggle" id="shade-toggle" aria-label="Choose background colour" aria-expanded="false" aria-controls="shade-panel">
+  <span class="shade-dot"></span>
+</button>
+
+<div class="shade-panel" id="shade-panel" role="dialog" aria-label="Background colour">
+  <div class="shade-label">background colour</div>
+  <div class="shade-row">
+    <input type="color" class="shade-picker" id="shade-picker" value="#0B1220" aria-label="Pick a colour">
+    <input type="text" class="shade-hex" id="shade-hex" value="#0B1220" maxlength="7" spellcheck="false" autocomplete="off" aria-label="Hex code">
+  </div>
+  <div class="shade-swatches" id="shade-swatches"></div>
+  <button class="shade-reset" id="shade-reset">reset to default</button>
+</div>
+
+<canvas id="curve-field" hidden></canvas>
+
+<div class="wrap">
+
+  <div class="hero">
+
+    <div class="glass-card reveal-on-scroll">
+      <div class="glass-card-top">
+        <div class="glass-avatar-wrap">
+          <img class="glass-avatar" id="discord-avatar" alt="Discord avatar" src="">
+          <div class="glass-status-dot" id="discord-status-dot"></div>
+        </div>
+        <div class="glass-info">
+          <div class="glass-username-row">
+            <span class="glass-username" aria-label="y4s.h"><span id="name-text"></span><span class="type-cursor" id="name-cursor" aria-hidden="true">|</span></span>
+            <span class="glass-badges" id="glass-badges"></span>
+          </div>
+        </div>
+      </div>
+      <div class="glass-status-text">&ldquo;Do or do not. There is no try.&rdquo;</div>
+      <div class="glass-status-cite">&mdash; Star Wars: The Empire Strikes Back <em>(Yoda)</em></div>
+    </div>
+
+    <div class="countdown hero-stagger" id="countdown">calculating&hellip;</div>
+    <div class="countdown hero-stagger" id="countdown-alevels">calculating&hellip;</div>
+
+    <div class="now-playing hero-stagger">
+      <button class="np-playpause" id="np-playpause" aria-label="Play or pause">
+        <svg id="np-play-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20"/></svg>
+        <svg id="np-pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="5" y="4" width="5" height="16"/><rect x="14" y="4" width="5" height="16"/></svg>
+      </button>
+      <div class="np-info">
+        <div class="np-title" id="np-title">loading&hellip;</div>
+        <div class="np-artist" id="np-artist">&nbsp;</div>
+      </div>
+      <div class="np-progress-track"><div class="np-progress-fill" id="np-progress-fill"></div></div>
+    </div>
+  </div>
+
+  <div class="problem-card reveal-on-scroll">
+    <div class="problem-eyebrow">
+      <span class="modline" id="problem-modline">day · · mod ·· = ··</span>
+      <canvas class="problem-doodle" id="problem-doodle" width="40" height="40" aria-hidden="true"></canvas>
+    </div>
+    <p class="problem-q" id="problem-q">Loading today's problem&hellip;</p>
+    <div class="problem-streak" id="problem-streak"></div>
+    <div class="streak-history" id="streak-history"></div>
+    <div class="next-question-box" id="next-question-box" style="display:inline-block; margin-bottom: 14px;">next question in <span class="nq-time" id="nq-time">&hellip;</span></div>
+
+    <div id="daily-solved-view" style="display:none;">
+      <div class="daily-solved-badge" id="daily-solved-badge"></div>
+    </div>
+
+    <div id="daily-attempt-view">
+      <div class="daily-feedback" id="daily-feedback"></div>
+      <div class="calc-widget" id="calc-widget">
+        <div class="calc-display-row">
+          <span class="calc-mem-indicator" id="calc-mem-indicator">M</span>
+          <span class="calc-op-indicator" id="calc-op-indicator"></span>
+          <input class="calc-display" id="calc-display" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" maxlength="14" placeholder="type your answer" aria-label="Your answer">
+          <button class="calc-btn calc-submit" id="calc-submit" data-action="submit" type="button">submit</button>
+        </div>
+        <button class="calc-toggle-btn" id="calc-toggle-btn" type="button" aria-expanded="false" aria-controls="calc-grid-wrap">
+          <span aria-hidden="true">&#128290;</span> <span id="calc-toggle-label">open calculator</span> <span class="chev" aria-hidden="true">&#9662;</span>
+        </button>
+        <div class="calc-grid-wrap" id="calc-grid-wrap">
+          <div class="calc-grid">
+            <button class="calc-btn calc-fn" data-action="mc">MC</button>
+            <button class="calc-btn calc-fn" data-action="mr">MR</button>
+            <button class="calc-btn calc-fn" data-action="mplus">M+</button>
+            <button class="calc-btn calc-fn" data-action="mminus">M&minus;</button>
+
+            <button class="calc-btn calc-fn" data-action="ac">AC</button>
+            <button class="calc-btn calc-fn" data-action="c">C</button>
+            <button class="calc-btn calc-fn" data-action="percent">%</button>
+            <button class="calc-btn calc-fn" data-action="sqrt">&radic;</button>
+
+            <button class="calc-btn" data-digit="7">7</button>
+            <button class="calc-btn" data-digit="8">8</button>
+            <button class="calc-btn" data-digit="9">9</button>
+            <button class="calc-btn calc-op" data-action="divide">&divide;</button>
+
+            <button class="calc-btn" data-digit="4">4</button>
+            <button class="calc-btn" data-digit="5">5</button>
+            <button class="calc-btn" data-digit="6">6</button>
+            <button class="calc-btn calc-op" data-action="multiply">&times;</button>
+
+            <button class="calc-btn" data-digit="1">1</button>
+            <button class="calc-btn" data-digit="2">2</button>
+            <button class="calc-btn" data-digit="3">3</button>
+            <button class="calc-btn calc-op" data-action="subtract">&minus;</button>
+
+            <button class="calc-btn calc-fn" data-action="sign">&plusmn;</button>
+            <button class="calc-btn" data-digit="0">0</button>
+            <button class="calc-btn" data-action="decimal">.</button>
+            <button class="calc-btn calc-op" data-action="add">+</button>
+
+            <button class="calc-btn calc-equals" data-action="equals">=</button>
+          </div>
+        </div>
+      </div>
+      <button class="give-up-link" id="give-up-btn">stuck? give up and see the solution</button>
+    </div>
+
+    <div class="problem-answer" id="problem-answer">
+      <span class="ans-label">solution</span>
+      <span id="problem-a"></span>
+    </div>
+  </div>
+
+  <div class="prob-card reveal-on-scroll">
+    <div id="prob-question-block">
+      <p class="prob-question">Want to see something cool?</p>
+      <div class="prob-choices">
+        <button class="prob-choice" id="prob-yes">Yes</button>
+        <button class="prob-choice" id="prob-no">No</button>
+      </div>
+    </div>
+    <div class="prob-result" id="prob-result" style="display:none;">Your loss then.</div>
+
+    <div id="prob-sim" style="display:none;">
+      <div class="prob-sim-eyebrow">Earth through time - drag to rotate</div>
+      <canvas class="galton-canvas" id="earth-canvas" tabindex="0" role="img" aria-label="Rotating Earth. Use the left and right arrow keys to change stage." style="height:340px;border-radius:14px;cursor:grab;touch-action:none"></canvas>
+      <div class="earth-info">
+        <div class="earth-time" id="earth-time">13.8 billion years ago</div>
+        <div class="earth-name" id="earth-name">The Big Bang</div>
+        <div class="earth-desc" id="earth-desc">All space, time and energy erupt from a single point and begin to expand.</div>
+      </div>
+      <input type="range" id="earth-slider" min="0" max="1000" value="0" aria-label="Earth timeline">
+      <div class="prob-controls">
+        <button class="prob-btn" id="earth-prev" aria-label="Previous stage">&lsaquo; prev</button>
+        <button class="prob-btn" id="earth-play">play</button>
+        <button class="prob-btn" id="earth-next" aria-label="Next stage">next &rsaquo;</button>
+        <button class="prob-btn" id="earth-today" aria-label="Skip to Earth today">today</button>
+        <button class="prob-btn" id="prob-close">close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="links" id="links-container">
+
+  </div>
+
+  <div class="footer reveal-on-scroll">
+    <div class="visit-line" id="visit-line" aria-live="polite">counting visitors&hellip;</div>
+    <div id="time-on-page" style="margin-bottom: 8px;">Want a website like this? Contact me on Discord - @y4s.h</div>
+    <div style="margin-top: 6px; font-size: 10px; opacity: 0.6;">The last time I updated this website was on Saturday 26th September 2026</div>
+  </div>
+
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<script>
+
+  const LINKS = [
+    {
+      label: "Instagram", sub: "@manlikey4sh", href: "https://instagram.com/manlikey4sh",
+      symbol: "&phi;",
+      title: "φ ≈ 1.618 — the classic ratio behind pleasing visual composition and framing."
+    },
+    {
+      label: "TikTok", sub: "@aurafarmingtoomuch", href: "https://tiktok.com/@aurafarmingtoomuch",
+      symbol: "sin&thinsp;&theta;",
+      title: "A sine wave — the simplest periodic function, for a platform built on looping content."
+    },
+    {
+      label: "Snapchat", sub: "@manlikey4sh", href: "https://snapchat.com/add/manlikey4sh",
+      symbol: "lim",
+      title: "A limit as t approaches 0 — for messages that exist only for an instant."
+    },
+    {
+      label: "Discord", sub: "y4s.h", href: "https://discord.com/users/y4s.h",
+      symbol: "(r,&thinsp;&theta;)",
+      title: "Polar coordinates — a point located by distance and angle, like navigating between servers and channels."
+    },
+  ];
+
+  const container = document.getElementById('links-container');
+  LINKS.forEach((link, i) => {
+    const a = document.createElement('a');
+    a.className = 'link-row reveal-on-scroll';
+    a.style.transitionDelay = `${i * 70}ms`;
+    a.href = link.href;
+    a.target = link.href.startsWith('http') ? '_blank' : '_self';
+    a.rel = 'noopener noreferrer';
+    a.title = link.title;
+    a.innerHTML = `
+      <span class="link-tag">${link.symbol}</span>
+      <span class="link-body">
+        <div class="link-label">${link.label}</div>
+        <div class="link-sub">${link.sub}</div>
+      </span>
+      <span class="link-arrow">&rarr;</span>
+    `;
+    container.appendChild(a);
+  });
+
+  let ytPlayer = null;
+  let userInteracted = false;
+  let musicStarted = false;
+  let lastVolume = 55;
+
+  function attemptMusicStart() {
+    if (musicStarted || !ytPlayer || !userInteracted) return;
+    musicStarted = true;
+    ytPlayer.setVolume(0);
+    ytPlayer.playVideo();
+
+    const target = lastVolume;
+    const steps = 32;
+    const stepTime = 1600 / steps;
+    let i = 0;
+    const fadeIn = setInterval(() => {
+      i++;
+      const v = Math.round((target * i) / steps);
+      ytPlayer.setVolume(v);
+      if (volumeSlider) volumeSlider.value = v;
+      if (i >= steps) clearInterval(fadeIn);
+    }, stepTime);
+  }
+
+  (function typeGateHandle() {
+    const handleEl = document.getElementById('gate-handle');
+    if (!handleEl) return;
+    const fullText = '@manlikey4sh';
+    let i = 0;
+    const typeInterval = setInterval(() => {
+      i++;
+      handleEl.textContent = fullText.slice(0, i);
+      if (i >= fullText.length) {
+        clearInterval(typeInterval);
+        const cursor = document.getElementById('gate-cursor');
+        if (cursor) cursor.style.display = 'none';
+        typeSub();
+      }
+    }, 85);
+    function typeSub() {
+      const subEl = document.getElementById('gate-sub');
+      const subCursor = document.getElementById('gate-sub-cursor');
+      if (!subEl) return;
+      const subText = 'Click anywhere to enter';
+      let k = 0;
+      if (subCursor) subCursor.style.display = '';
+      const subInterval = setInterval(() => {
+        k++;
+        subEl.textContent = subText.slice(0, k);
+        if (k >= subText.length) {
+          clearInterval(subInterval);
+          if (subCursor) subCursor.style.display = 'none';
+        }
+      }, 55);
+    }
+  })();
+
+  let gateHidden = false;
+  function hideEnterGate() {
+    if (gateHidden) return;
+    gateHidden = true;
+    const gate = document.getElementById('enter-gate');
+    const wrap = document.querySelector('.wrap');
+    if (wrap) wrap.classList.add('revealed');
+
+    const nameText = document.getElementById('name-text');
+    if (nameText) {
+      const fullText = 'y4s.h';
+      let i = 0;
+      nameText.textContent = '';
+      const typeInterval = setInterval(() => {
+        i++;
+        nameText.textContent = fullText.slice(0, i);
+        if (i >= fullText.length) {
+          clearInterval(typeInterval);
+          const cursor = document.getElementById('name-cursor');
+          if (cursor) cursor.style.display = 'none';
+        }
+      }, 85);
+    }
+
+    if (!gate) return;
+    gate.classList.add('hidden');
+    setTimeout(() => gate.remove(), 1150);
+
+    const heroItems = document.querySelectorAll('.hero-stagger');
+    heroItems.forEach((el, i) => {
+      setTimeout(() => el.classList.add('in'), 260 + i * 130);
+    });
+  }
+
+  window.onYouTubeIframeAPIReady = () => {
+    ytPlayer = new YT.Player('youtube-embed', {
+      height: '166',
+      width: '300',
+      videoId: 'WqMsx7FMRy0',
+      playerVars: Object.assign(
+        { autoplay: 0, controls: 0, disablekb: 1, modestbranding: 1, fs: 0, playsinline: 1, rel: 0 },
+        location.protocol.startsWith('http') ? { origin: location.origin } : {}
+      ),
+      events: {
+        onReady: () => {
+          try {
+            const d = ytPlayer.getVideoData();
+            if (d && d.title) document.getElementById('np-title').textContent = d.title;
+            if (d && d.author) document.getElementById('np-artist').textContent = d.author;
+          } catch (e) {}
+          attemptMusicStart();
+        },
+        onStateChange: (e) => {
+          updatePlayPauseIcon(e.data === YT.PlayerState.PLAYING);
+          try {
+            const d = ytPlayer.getVideoData();
+            if (d && d.title) document.getElementById('np-title').textContent = d.title;
+            if (d && d.author) document.getElementById('np-artist').textContent = d.author;
+          } catch (e2) {}
+        },
+        onError: (event) => {
+          console.error('YouTube player error, code:', event.data);
+          const t = document.getElementById('np-title');
+          const a = document.getElementById('np-artist');
+          if (t) t.textContent = "couldn't play this track";
+          if (a) a.innerHTML = '<a href="https://www.youtube.com/watch?v=WqMsx7FMRy0" target="_blank" rel="noopener noreferrer" style="color:inherit">open on YouTube</a>';
+        },
+      },
+    });
+  };
+
+  const npPlayPause = document.getElementById('np-playpause');
+  const npPlayIcon = document.getElementById('np-play-icon');
+  const npPauseIcon = document.getElementById('np-pause-icon');
+  const npProgressFill = document.getElementById('np-progress-fill');
+
+  function updatePlayPauseIcon(isPlaying) {
+    npPlayIcon.style.display = isPlaying ? 'none' : 'block';
+    npPauseIcon.style.display = isPlaying ? 'block' : 'none';
+  }
+
+  npPlayPause.addEventListener('click', () => {
+    if (!ytPlayer) return;
+    const state = ytPlayer.getPlayerState();
+    if (state === YT.PlayerState.PLAYING) {
+      ytPlayer.pauseVideo();
+    } else {
+      ytPlayer.playVideo();
+    }
+  });
+
+  setInterval(() => {
+    if (!ytPlayer || !musicStarted) return;
+    const duration = ytPlayer.getDuration();
+    const current = ytPlayer.getCurrentTime();
+    if (duration > 0) {
+      npProgressFill.style.transform = `scaleX(${Math.min(1, current / duration)})`;
+    }
+  }, 250);
+
+  const volumeSlider = document.getElementById('volume-slider');
+  const volumeIcon = document.getElementById('volume-icon');
+  const volumeWave = document.getElementById('volume-wave');
+  volumeSlider.addEventListener('input', (e) => {
+    lastVolume = Number(e.target.value);
+    if (ytPlayer) ytPlayer.setVolume(lastVolume);
+    volumeWave.style.opacity = lastVolume === 0 ? '0.25' : '1';
+  });
+  volumeIcon.addEventListener('click', () => {
+    if (lastVolume > 0) {
+      volumeSlider.dataset.prevVolume = lastVolume;
+      lastVolume = 0;
+    } else {
+      lastVolume = Number(volumeSlider.dataset.prevVolume) || 55;
+    }
+    volumeSlider.value = lastVolume;
+    if (ytPlayer) ytPlayer.setVolume(lastVolume);
+    volumeWave.style.opacity = lastVolume === 0 ? '0.25' : '1';
+  });
+
+  (function setupScrollReveal() {
+    const targets = document.querySelectorAll('.reveal-on-scroll');
+    if (!('IntersectionObserver' in window) || targets.length === 0) {
+      targets.forEach((el) => el.classList.add('in-view'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    targets.forEach((el) => io.observe(el));
+  })();
+
+  (function setupCardTilt() {
+    const card = document.querySelector('.glass-card');
+    if (!card) return;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (prefersReduced || !canHover) return;
+
+    const MAX_TILT = 6;
+    let tx = 0, ty = 0, cx = 0, cy = 0, raf = 0, hovering = false;
+
+    function step() {
+      cx += (tx - cx) * 0.12;
+      cy += (ty - cy) * 0.12;
+      const settled = Math.abs(tx - cx) < 0.01 && Math.abs(ty - cy) < 0.01;
+      if (!hovering && settled) {
+        card.style.transform = '';
+        raf = 0;
+        return;
+      }
+      card.style.transform =
+        `perspective(700px) rotateY(${(cx * MAX_TILT).toFixed(2)}deg) rotateX(${(-cy * MAX_TILT).toFixed(2)}deg) translateY(-2px)`;
+      raf = requestAnimationFrame(step);
+    }
+
+    card.addEventListener('mouseenter', () => {
+      hovering = true;
+      card.style.transition = 'box-shadow 0.4s var(--ease)';
+      if (!raf) raf = requestAnimationFrame(step);
+    });
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      tx = (e.clientX - rect.left) / rect.width - 0.5;
+      ty = (e.clientY - rect.top) / rect.height - 0.5;
+    }, { passive: true });
+    card.addEventListener('mouseleave', () => {
+      hovering = false;
+      tx = 0; ty = 0;
+      if (!raf) raf = requestAnimationFrame(step);
+    });
+  })();
+
+  (function setupProblemStreak() {
+    const el = document.getElementById('problem-streak');
+    if (!el) return;
+    try {
+      const todayKey = new Date().toISOString().slice(0, 10);
+      const raw = localStorage.getItem('y4sh_problem_streak');
+      let data = raw ? JSON.parse(raw) : { lastDate: null, streak: 0, totalDays: 0 };
+
+      if (data.lastDate !== todayKey) {
+        const prev = data.lastDate ? new Date(data.lastDate) : null;
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        const wasYesterday = prev && prev.toISOString().slice(0, 10) === yesterday.toISOString().slice(0, 10);
+        data = {
+          lastDate: todayKey,
+          streak: wasYesterday ? data.streak + 1 : 1,
+          totalDays: data.totalDays + 1,
+        };
+        localStorage.setItem('y4sh_problem_streak', JSON.stringify(data));
+      }
+
+      const dayWord = data.totalDays === 1 ? 'day' : 'days';
+      el.innerHTML = `<span class="flame">&#128293; ${data.streak}-day streak</span> &middot; ${data.totalDays} ${dayWord} solved`;
+    } catch (err) {
+
+      el.remove();
+    }
+  })();
+
+  (function setupKonami() {
+    const CODE = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    let pos = 0;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const SYMBOLS = ['\u03c0', '\u221e', '\u221a', '\u03a3', '\u222b', '\u0398', 'e'];
+
+    function spawnSymbols() {
+      if (prefersReduced) return;
+      for (let i = 0; i < 32; i++) {
+        setTimeout(() => {
+          const s = document.createElement('div');
+          s.className = 'konami-symbol';
+          s.textContent = SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
+          s.style.left = `${Math.random() * 100}vw`;
+          s.style.fontSize = `${18 + Math.random() * 22}px`;
+          const duration = 3.5 + Math.random() * 2.5;
+          s.style.animationDuration = `${duration}s`;
+          document.body.appendChild(s);
+          setTimeout(() => s.remove(), duration * 1000 + 100);
+        }, i * 60);
+      }
+    }
+
+    function showToast() {
+      const toast = document.createElement('div');
+      toast.className = 'konami-toast';
+      toast.textContent = '\u2211 easter egg found \u2014 do or do not.';
+      document.body.appendChild(toast);
+      requestAnimationFrame(() => toast.classList.add('show'));
+      setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 500);
+      }, 3200);
+    }
+
+    window.addEventListener('keydown', (e) => {
+      const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+      pos = key === CODE[pos] ? pos + 1 : (key === CODE[0] ? 1 : 0);
+      if (pos === CODE.length) {
+        pos = 0;
+        spawnSymbols();
+        showToast();
+      }
+    });
+  })();
+
+  function handleFirstInteraction() {
+    userInteracted = true;
+    attemptMusicStart();
+    hideEnterGate();
+  }
+
+  ['pointerdown', 'click', 'touchstart', 'keydown'].forEach((evt) => {
+    document.addEventListener(evt, handleFirstInteraction, { once: true, passive: true });
+  });
+
+  const DISCORD_USER_ID = '690269705596174337';
+
+  const STATUS_COLORS = {
+    online: '#3BA55C',
+    idle: '#FAA61A',
+    dnd: '#ED4245',
+    offline: '#6B6E76',
+  };
+
+  const BADGES = [
+    {
+      kind: 'tag',
+      icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230B1220'/%3E%3Ctext x='50' y='70' font-family='Georgia, serif' font-style='italic' font-size='62' fill='%2382A4F5' text-anchor='middle'%3EY%3C/text%3E%3C/svg%3E",
+      text: 'Y4SH',
+    },
+  ];
+
+  function renderBadges() {
+    const el = document.getElementById('glass-badges');
+    if (!el) return;
+    el.innerHTML = BADGES.map((b) => {
+      if (b.kind === 'tag') {
+        return `<span class="glass-tag-chip"><img class="glass-tag-icon" src="${b.icon}" alt=""><span class="glass-tag-text">${b.text}</span></span>`;
+      }
+      return `<span class="glass-badge"><span>${b.icon}</span><span>${b.label}</span></span>`;
+    }).join('');
+  }
+  renderBadges();
+
+  let lastAvatarUrl = null;
+
+  async function updateDiscordStatus() {
+    const dot = document.getElementById('discord-status-dot');
+    const img = document.getElementById('discord-avatar');
+    try {
+      const res = await fetch(`https://api.lanyard.rest/v1/users/${DISCORD_USER_ID}`);
+      const json = await res.json();
+      if (!json.success) throw new Error('lanyard lookup failed');
+      const d = json.data;
+      const status = d.discord_status || 'offline';
+      dot.style.background = STATUS_COLORS[status] || STATUS_COLORS.offline;
+      const avatarHash = d.discord_user.avatar;
+      const uid = d.discord_user.id;
+      const avatarUrl = avatarHash
+        ? `https://cdn.discordapp.com/avatars/${uid}/${avatarHash}.png?size=160`
+        : `https://cdn.discordapp.com/embed/avatars/0.png`;
+      if (avatarUrl !== lastAvatarUrl) {
+        lastAvatarUrl = avatarUrl;
+        img.src = avatarUrl;
+
+        document.documentElement.style.setProperty('--glass-glow-img', `url("${avatarUrl}")`);
+      }
+    } catch (err) {
+      dot.style.background = STATUS_COLORS.offline;
+    }
+  }
+  updateDiscordStatus();
+  setInterval(updateDiscordStatus, 20000);
+
+  const COUNTDOWN_TARGET = new Date(2027, 0, 1, 0, 0, 0);
+
+  function updateCountdown() {
+    const el = document.getElementById('countdown');
+    const now = new Date();
+    const diff = COUNTDOWN_TARGET - now;
+
+    if (diff <= 0) {
+      el.textContent = "it's here";
+      return;
+    }
+
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const minutes = Math.floor((diff % 3600000) / 60000);
+    const seconds = Math.floor((diff % 60000) / 1000);
+
+    el.innerHTML =
+      `<span>${days}</span>d &nbsp;<span>${hours}</span>h &nbsp;<span>${minutes}</span>m &nbsp;<span>${seconds}</span>s &nbsp;until 2027`;
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  const ALEVELS_TARGET = new Date(2027, 5, 18, 0, 0, 0);
+
+  function updateAlevelsCountdown() {
+    const el = document.getElementById('countdown-alevels');
+    if (!el) return;
+    const now = new Date();
+    const diff = ALEVELS_TARGET - now;
+
+    if (diff <= 0) {
+      el.textContent = "it's here";
+      return;
+    }
+
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const minutes = Math.floor((diff % 3600000) / 60000);
+    const seconds = Math.floor((diff % 60000) / 1000);
+
+    el.innerHTML =
+      `<span>${days}</span>d &nbsp;<span>${hours}</span>h &nbsp;<span>${minutes}</span>m &nbsp;<span>${seconds}</span>s &nbsp;until A-Levels Finish`;
+  }
+  updateAlevelsCountdown();
+  setInterval(updateAlevelsCountdown, 1000);
+
+  function updateNextQuestionCountdown() {
+    const el = document.getElementById('nq-time');
+    if (!el) return;
+    const now = new Date();
+    const nextMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
+    const diff = nextMidnight - now;
+
+    const hours = Math.floor(diff / 3600000);
+    const minutes = Math.floor((diff % 3600000) / 60000);
+    const seconds = Math.floor((diff % 60000) / 1000);
+
+    el.textContent =
+      `${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
+  }
+  updateNextQuestionCountdown();
+  setInterval(updateNextQuestionCountdown, 1000);
+
+  const root = document.documentElement;
+  const $ = (id) => document.getElementById(id);
+  const themeIconDark = $('theme-icon-dark');
+  const themeIconLight = $('theme-icon-light');
+  const SHADE_KEY = 'site-shade';
+  const SHADE_PRESETS = [
+    ['#0B1220', 'Midnight navy (default)'],
+    ['#050810', 'Deep space'],
+    ['#0A0A0F', 'Obsidian'],
+    ['#101827', 'Dusk blue'],
+    ['#0A1A24', 'Deep ocean'],
+    ['#0C1A17', 'Pine night'],
+    ['#161027', 'Ultraviolet'],
+    ['#1E1230', 'Amethyst'],
+    ['#1A0E16', 'Wine'],
+    ['#1C1B22', 'Graphite'],
+    ['#F7F7F2', 'Paper'],
+    ['#EAF0FB', 'Ice'],
+  ];
+  const HEX_RE = /^#?([0-9a-f]{3}|[0-9a-f]{6})$/i;
+
+  const store = {
+    get: (key) => { try { return localStorage.getItem(key); } catch (e) { return null; } },
+    set: (key, value) => { try { localStorage.setItem(key, value); } catch (e) {} },
+    remove: (key) => { try { localStorage.removeItem(key); } catch (e) {} },
+  };
+
+  const currentTheme = () => root.getAttribute('data-theme') || 'dark';
+
+  function setTheme(theme) {
+    if (theme === 'dark') root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', theme);
+    themeIconDark.style.display = theme === 'light' ? 'none' : 'block';
+    themeIconLight.style.display = theme === 'light' ? 'block' : 'none';
+    document.dispatchEvent(new Event('themechange'));
+  }
+
+  function normalizeHex(value) {
+    const match = HEX_RE.exec(value.trim());
+    if (!match) return null;
+    const h = match[1].length === 3 ? [...match[1]].map((c) => c + c).join('') : match[1];
+    return '#' + h.toLowerCase();
+  }
+
+  const toRgb = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+  const toHex = (rgb) => '#' + rgb.map((v) => Math.round(v).toString(16).padStart(2, '0')).join('');
+  const mixWithWhite = (hex, amount) => toHex(toRgb(hex).map((v) => v + (255 - v) * amount));
+  const isLightColour = (hex) => {
+    const [r, g, b] = toRgb(hex);
+    return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255 > 0.55;
+  };
+
+  const shadePanel = $('shade-panel');
+  const shadeToggle = $('shade-toggle');
+  const shadePicker = $('shade-picker');
+  const shadeHex = $('shade-hex');
+
+  function syncShadeInputs(hex) {
+    shadePicker.value = hex;
+    shadeHex.value = hex;
+    shadeHex.classList.remove('invalid');
+  }
+
+  function applyShade(hex, { save = true } = {}) {
+    const light = isLightColour(hex);
+    const paper2 = mixWithWhite(hex, light ? 0.6 : 0.06);
+    root.style.setProperty('--paper', hex);
+    root.style.setProperty('--paper-2', paper2);
+    setTheme(light ? 'light' : 'dark');
+    syncShadeInputs(hex);
+    if (save) store.set(SHADE_KEY, JSON.stringify({ p: hex, p2: paper2, t: light ? 'light' : 'dark' }));
+  }
+
+  function resetShade() {
+    root.style.removeProperty('--paper');
+    root.style.removeProperty('--paper-2');
+    store.remove(SHADE_KEY);
+    setTheme(store.get('site-theme') === 'light' ? 'light' : 'dark');
+    syncShadeInputs(getComputedStyle(root).getPropertyValue('--paper').trim());
+  }
+
+  const hasCustomShade = () => root.style.getPropertyValue('--paper') !== '';
+
+  setTheme(currentTheme());
+  if (hasCustomShade()) syncShadeInputs(normalizeHex(root.style.getPropertyValue('--paper')) || '#0B1220');
+
+  $('theme-toggle').addEventListener('click', () => {
+    const next = currentTheme() === 'light' ? 'dark' : 'light';
+    if (hasCustomShade()) {
+      root.style.removeProperty('--paper');
+      root.style.removeProperty('--paper-2');
+      store.remove(SHADE_KEY);
+    }
+    store.set('site-theme', next);
+    setTheme(next);
+    syncShadeInputs(getComputedStyle(root).getPropertyValue('--paper').trim());
+  });
+
+  SHADE_PRESETS.forEach(([hex, name]) => {
+    const swatch = document.createElement('button');
+    swatch.className = 'shade-swatch';
+    swatch.style.background = hex;
+    swatch.title = name + ' ' + hex;
+    swatch.setAttribute('aria-label', 'Use ' + name + ' ' + hex);
+    swatch.addEventListener('click', () => applyShade(hex));
+    $('shade-swatches').appendChild(swatch);
+  });
+
+  shadePicker.addEventListener('input', () => applyShade(shadePicker.value));
+  shadeHex.addEventListener('input', () => {
+    const hex = normalizeHex(shadeHex.value);
+    shadeHex.classList.toggle('invalid', !hex);
+    if (hex) applyShade(hex);
+  });
+  shadeHex.addEventListener('blur', () => {
+    if (!normalizeHex(shadeHex.value)) syncShadeInputs(getComputedStyle(root).getPropertyValue('--paper').trim());
+  });
+  $('shade-reset').addEventListener('click', resetShade);
+
+  const setPanel = (open) => {
+    shadePanel.classList.toggle('open', open);
+    shadeToggle.setAttribute('aria-expanded', String(open));
+  };
+  shadeToggle.addEventListener('click', (e) => { e.stopPropagation(); setPanel(!shadePanel.classList.contains('open')); });
+  document.addEventListener('click', (e) => { if (!shadePanel.contains(e.target)) setPanel(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setPanel(false); });
+
+  const PROBLEMS = [
+    { q: "What is the sum of the first 10 positive integers: 1 + 2 + 3 + &hellip; + 10?", answer: 55, a: "55. This is the trick a young Gauss supposedly used: pair the first and last numbers (1 + 10 = 11), the second and second-last (2 + 9 = 11), and so on. There are 5 such pairs, each adding to 11, so 5 &times; 11 = 55 &mdash; no need to add ten numbers one at a time." },
+    { q: "A snail climbs 3m up a well each day and slips back 2m each night. The well is 10m deep. On which day does it escape?", answer: 8, a: "Day 8. Each full day-and-night nets only 1m of progress, so after 7 days it's climbed to 7m. But on day 8 it climbs the final 3m during the day and reaches 10m before it has a chance to slip back &mdash; it's already out." },
+    { q: "What's the smallest number of people needed in a room so it's more likely than not that two share a birthday?", answer: 23, a: "23. This is the famous birthday paradox: it feels far too small, but with 23 people there are actually 253 different pairs of people, and each pair has a small chance of matching &mdash; enough pairs add up fast, pushing the odds of some match past 50%." },
+    { q: "What's the smallest positive integer that can be written as the sum of two cubes in two different ways?", answer: 1729, a: "1729, sometimes called the 'taxicab number'. It equals 1&sup3; + 12&sup3; (1 + 1728) and also 9&sup3; + 10&sup3; (729 + 1000) &mdash; two completely different pairs of cubes landing on the exact same total." },
+    { q: "A farmer has 17 sheep, and all but 9 die. How many are left?", answer: 9, a: "9. 'All but 9 die' simply means 9 of them survive &mdash; it's a trick of wording, not a subtraction problem." },
+    { q: "What's the minimum number of colours needed to colour any map so that no two touching regions share a colour?", answer: 4, a: "4. This is the Four Colour Theorem: every normal map can be coloured with just 4 colours so no two touching regions match, but never fewer, since you can draw maps where 4 regions all touch each other. It was proven in 1976, notably with help from a computer checking thousands of individual cases." },
+    { q: "A ladder 10m long leans against a wall, its base 6m from the wall. If the base slides out to 8m, by how many metres does the top slide down?", answer: 2, a: "2 metres. Using the ladder's fixed length as the longest side of a right triangle (Pythagoras), the top starts 8m up the wall and ends 6m up &mdash; a drop of exactly 2m. What surprises people is that the sliding isn't steady: the top barely moves at first and then drops faster and faster as the base keeps sliding out." },
+    { q: "At a party of 12 people, everyone shakes hands with everyone else exactly once. How many handshakes happen in total?", answer: 66, a: "66. Each of the 12 people shakes hands with the other 11, which looks like 132 handshakes at first &mdash; but that counts every single handshake twice (once for each person in it), so the real total is 132 divided by 2, which is 66." },
+    { q: "A shop only sells chicken nuggets in boxes of 3 and 5. What's the largest number of nuggets you can't make from any combination of 3s and 5s?", answer: 7, a: "7. You can't make 1, 2, 4, or 7 using any combination of 3s and 5s, but every whole number from 8 onward can be built by combining them. Whenever two box sizes share no common factor, there's always a largest 'impossible' number like this: multiply the two box sizes together and subtract both of them (3 &times; 5 &minus; 3 &minus; 5 = 7)." },
+    { q: "How many people do you need at a gathering to guarantee either 3 who all know each other, or 3 total strangers to each other?", answer: 6, a: "6 people. With only 5 people, you can always arrange the friendships cleverly enough to avoid both a group of 3 mutual friends and a group of 3 mutual strangers &mdash; but with 6 people, no matter how the friendships are arranged, one of those two groups is guaranteed to exist." },
+    { q: "If a rectangle's length and width are both increased by 10%, by what percentage does its area increase? (enter just the number)", answer: 21, a: "21%, not 20%. Increasing each side by 10% means multiplying it by 1.1, and area comes from multiplying both sides together, so the two 10% increases compound: 1.1 &times; 1.1 = 1.21, a 21% increase overall." },
+    { q: "What is 1 + 3 + 5 + 7 + 9 + 11 + 13 + 15 + 17 + 19, the sum of the first 10 odd numbers?", answer: 100, a: "100 &mdash; exactly 10&sup2;, a perfect square. You can see why with dots: start with 1 dot, then wrap an L-shaped border of 3 dots around it to make a 2&times;2 square, then a border of 5 dots to make a 3&times;3 square, and so on &mdash; each new odd number is precisely the border needed to grow the square by one more ring." },
+    { q: "What is the sum of the interior angles of a regular decagon (a 10-sided polygon), in degrees?", answer: 1440, a: "1440&deg;. Draw lines from one corner to every other corner and any polygon splits into triangles &mdash; always exactly 2 fewer triangles than it has sides, so 8 triangles here. Since every triangle's angles add up to 180&deg;, the whole shape adds up to 8 &times; 180&deg; = 1440&deg;." },
+    { q: "What do you get if you add up 1/1, 1/3, 1/6, 1/10, 1/15 &hellip; the reciprocals of every triangular number, forever?", answer: 2, a: "Exactly 2. Each of these fractions can be rewritten as the difference of two simpler pieces, chosen so that almost every piece cancels out with a piece from the next term in line &mdash; like a chain reaction where everything collapses except the very first piece, which ends up doubled." },
+    { q: "If 4 people at a party all grab a random coat from a pile of their own 4 coats, in how many ways can every single one of them end up with someone else's coat (nobody gets their own back)?", answer: 9, a: "9 ways. These are called 'derangements' &mdash; arrangements with zero matches. For a small number like 4 you can actually list all 24 orderings and count, but there's also a quick formula, and it settles at 9 out of 24 total orderings, or 3/8 of the time." },
+    { q: "A runner covers half of a 1-mile course, then half of what's left, then half of what's left again, forever. How many miles do they cover in total?", answer: 1, a: "1 mile, even though it's described as infinitely many steps. Adding 1/2 + 1/4 + 1/8 + 1/16 and so on forever still totals exactly 1, because each new piece is half the size of what's still missing. This is Zeno's dichotomy paradox: the trick that makes it feel impossible is confusing an infinite number of steps with an infinite amount of time or distance." },
+    { q: "The city of K&ouml;nigsberg had 7 bridges connecting 4 landmasses. How many of those 4 landmasses had an odd number of bridges touching them?", answer: 4, a: "All 4 of them. Euler showed a route crossing every bridge exactly once only exists if at most two landmasses have an odd number of bridges. K&ouml;nigsberg had all 4 landmasses with an odd count &mdash; too many exceptions &mdash; so no such walk exists, and proving it launched an entire new area of maths." },
+    { q: "Two trains 60 miles apart approach each other at 30mph each. A bee flies between them at 60mph, turning around instantly at each train. How far, in miles, does the bee fly before they meet?", answer: 60, a: "60 miles. Don't try to add up every back-and-forth trip the bee makes &mdash; just notice the trains are closing the 60-mile gap at a combined 60mph, so they meet after exactly 1 hour. The bee flies the whole hour at 60mph, so it covers 60 miles no matter how many times it turns around." },
+    { q: "You have 8 identical-looking balls, one slightly heavier, and a balance scale. What's the minimum number of weighings needed to guarantee finding the heavy one?", answer: 2, a: "2 weighings. Split into groups of 3, 3, 2. Weigh the two groups of 3 against each other: if they balance, the heavy ball is one of the leftover 2 (one more weighing finds it); if they don't, the heavy ball is in the heavier group of 3 (weighing any two of those three finds it)." },
+    { q: "How many Platonic solids are there in total (solids made of one repeated regular shape, the same number meeting at every corner)?", answer: 5, a: "5: the cube, tetrahedron, octahedron, dodecahedron, and icosahedron. At each corner, the angles meeting there must add up to less than a full turn or the shape can't close up &mdash; and checking every combination of shape and corner-count only ever gives these 5 working combinations." },
+    { q: "What is the next number in the sequence, read as a single number: 1, 11, 21, 1211, 111221, ...?", answer: 312211, a: "312211. Each term just describes the one before it, read aloud: 111221 is \"three 1s, two 2s, one 1\" &rarr; 312211. It's called the 'look-and-say' sequence." },
+    { q: "Two ropes each take exactly 60 minutes to burn, but burn unevenly. By lighting one rope at both ends and the other at one end at the same moment, what exact number of minutes can you measure?", answer: 45, a: "45 minutes. The double-lit rope burns out after 30 minutes no matter how unevenly it burns. At that exact moment, light the other end of the second rope too &mdash; now burning from both ends, it finishes 15 minutes later, for a total of 30 + 15 = 45." },
+    { q: "You have 27 identical-looking balls, one slightly heavier, and a balance scale. What's the minimum number of weighings needed to guarantee finding it?", answer: 3, a: "3 weighings. Splitting into three equal groups (instead of two) at each step and weighing two of them against each other narrows the search down by a factor of 3 every time, and 3&sup3; = 27 exactly &mdash; the same trick that finds one heavy ball among 8 in 2 weighings, one step further." },
+    { q: "What is 10 factorial divided by 8 factorial (10! &divide; 8!)?", answer: 90, a: "90. The 8! on the bottom cancels almost all of the 10! on top, leaving just 10 &times; 9 = 90 &mdash; no need to work out either factorial in full." },
+
+    { q: "A jacket costs &pound;80. It's reduced by 25% in a sale, and then an extra 10% comes off the already-discounted price at the till. What's the final price, in pounds?", answer: 54, a: "&pound;54. 25% off &pound;80 leaves &pound;60, and 10% off that leaves &pound;54. The two discounts don't just add up to 35% off &mdash; the second one is taken off the already-reduced price, so it's really 0.75 &times; 0.9 = 0.675 of the original, a 32.5% saving overall." },
+    { q: "Your monthly rent is &pound;950 and your landlord just raised it by 6%. What's your new monthly rent, in pounds?", answer: 1007, a: "&pound;1007. A 6% increase means multiplying by 1.06: 950 &times; 1.06 = 1007." },
+    { q: "A cyclist covers 27 miles in exactly 1 hour 30 minutes. What is her average speed in mph?", answer: 18, a: "18 mph. Convert the time to hours first (1.5), then divide distance by time: 27 &divide; 1.5 = 18. Speed questions almost always come down to that one division once the units match." },
+    { q: "If &pound;1 is worth $1.25, how many dollars would you get for &pound;64?", answer: 80, a: "$80. Multiply the amount by the exchange rate: 64 &times; 1.25 = 80." },
+    { q: "A 6-pack of sparkling water costs &pound;4.50 in total. What is the price of a single can, in pence?", answer: 75, a: "75p. &pound;4.50 &divide; 6 = &pound;0.75 per can, which is 75 pence. Converting to pence first (450 &divide; 6 = 75) avoids the decimal entirely if you'd rather work that way." },
+    { q: "A recipe needs flour and sugar in a ratio of 5:2. If you're using 350g of flour, how many grams of sugar do you need?", answer: 140, a: "140g. Find what one 'share' is worth first: 350 &divide; 5 = 70g per share, then sugar is 2 shares: 70 &times; 2 = 140g." },
+    { q: "A train covers 150 miles at an average speed of 40mph. How many minutes does the journey take?", answer: 225, a: "225 minutes. 150 &divide; 40 = 3.75 hours, and 3.75 &times; 60 = 225 minutes. It's easy to stop at 3.75 and forget the units were hours, not minutes." },
+    { q: "You invest &pound;2000 at a simple interest rate of 4% per year. How much interest, in pounds, will you have earned after 3 years?", answer: 240, a: "&pound;240. Simple interest doesn't compound, so it's just 2000 &times; 0.04 &times; 3 = 240 in interest (on top of your original &pound;2000)." },
+    { q: "You invest &pound;1000 at 10% annual compound interest. What is the total value of the investment after 2 years, in pounds?", answer: 1210, a: "&pound;1210. Each year multiplies the current total by 1.1: 1000 &times; 1.1 = 1100 after year one, then 1100 &times; 1.1 = 1210 after year two &mdash; noticeably more than simple interest would give (&pound;1200), since the second year's growth is calculated on &pound;1100, not the original &pound;1000." },
+    { q: "Five friends are 22, 25, 19, 30, and 24 years old. What is their mean (average) age?", answer: 24, a: "24. Add them all up (22+25+19+30+24 = 120) and divide by how many there are: 120 &divide; 5 = 24." },
+    { q: "Solution A is 20% salt and Solution B is 50% salt. If you mix 300ml of A with 200ml of B, what percentage of the final mixture is salt? (enter just the number)", answer: 32, a: "32%. Work out the actual salt, not the percentages: 300ml &times; 0.2 = 60ml of salt from A, and 200ml &times; 0.5 = 100ml from B, for 160ml of salt in 500ml total &mdash; 160 &divide; 500 &times; 100 = 32%." },
+    { q: "A meal costs &pound;40 before any charges. A 10% service charge is added first, and then 20% VAT is applied to that new total. What is the final bill, in pounds?", answer: 52.8, a: "&pound;52.80. Add the service charge first: 40 &times; 1.1 = 44. Then apply VAT to that new total, not the original: 44 &times; 1.2 = 52.8." },
+    { q: "A phone costs &pound;1200. Its price drops by 15% one month, then by a further 15% of the new (already-reduced) price the next month. What's the final price, in pounds?", answer: 867, a: "&pound;867. 1200 &times; 0.85 = 1020 after the first drop, then 1020 &times; 0.85 = 867 after the second. Two 15% drops are not the same as one 30% drop (which would leave &pound;840) &mdash; the second discount is smaller in real pounds because it's taken off a lower price." },
+    { q: "8 workers can build a wall in 15 days. Assuming everyone works at the same steady rate, how many days would it take 12 workers to build the same wall?", answer: 10, a: "10 days. Work out the total 'worker-days' the job takes: 8 &times; 15 = 120. Then share that same amount of work across 12 workers: 120 &divide; 12 = 10 days." },
+    { q: "A car is travelling at 108 km/h. What is that speed in metres per second?", answer: 30, a: "30 m/s. Convert km to metres (&times;1000) and hours to seconds (&divide;3600): 108 &times; 1000 &divide; 3600 = 30. A quick shortcut worth remembering: dividing a km/h figure by 3.6 always gives m/s directly." },
+    { q: "After a 20% discount, a pair of shoes costs &pound;64. What was the original price, in pounds, before the discount?", answer: 80, a: "&pound;80. &pound;64 is 80% of the original price (100% &minus; 20%), so divide by 0.8 rather than multiplying: 64 &divide; 0.8 = 80. A common mistake is adding 20% back onto &pound;64, which gives the wrong answer of &pound;76.80." },
+    { q: "A lawn feed is applied at 5g per square metre. How many grams do you need for a 68 square metre lawn?", answer: 340, a: "340g. This is a straight multiplication once the units line up: 5g/m&sup2; &times; 68m&sup2; = 340g." },
+    { q: "A 1000 litre water tank needs to be filled evenly over 8 hours. What is the fill rate, in litres per hour?", answer: 125, a: "125 litres/hour. Total volume divided by total time: 1000 &divide; 8 = 125." },
+    { q: "A 2-litre (2000ml) bottle of juice costs &pound;3.60. What is the price per 100ml, in pence?", answer: 18, a: "18p. &pound;3.60 is 360 pence for 2000ml, and 100ml is 1/20th of that: 360 &divide; 20 = 18 pence." },
+    { q: "In a class of 32 students, 75% passed an exam. How many students passed?", answer: 24, a: "24 students. 32 &times; 0.75 = 24." },
+    { q: "18 students make up 40% of a class. How many students are in the whole class?", answer: 45, a: "45 students. Since 18 is 40% of the total, divide by 0.4 to scale back up to 100%: 18 &divide; 0.4 = 45." },
+    { q: "A shop buys a product for &pound;15 and sells it for &pound;24. What is the profit margin, as a percentage of the cost price? (enter just the number)", answer: 60, a: "60%. The profit is 24 &minus; 15 = &pound;9, and as a percentage of the &pound;15 cost price that's 9 &divide; 15 &times; 100 = 60%." },
+    { q: "Person A can paint a fence alone in 6 hours. Person B can paint the same fence alone in 3 hours. Working together at those same steady rates, how many hours would it take them to paint it?", answer: 2, a: "2 hours. Add their rates, not their times: A manages 1&divide;6 of the fence per hour and B manages 1&divide;3 per hour, together 1&divide;6 + 1&divide;3 = 1&divide;2 of the fence every hour, so the whole job takes 1 &divide; (1&divide;2) = 2 hours." },
+    { q: "Concert ticket prices rose from &pound;80 to &pound;92. What was the percentage increase? (enter just the number)", answer: 15, a: "15%. Find the increase (92 &minus; 80 = 12) and divide by the original price, not the new one: 12 &divide; 80 &times; 100 = 15%." },
+    { q: "A patch of pond weed doubles in size every 20 minutes. Starting from a single plant, how many will there be after 2 hours?", answer: 64, a: "64. Two hours is 120 minutes, which is 6 doublings of 20 minutes each. Doubling six times means multiplying by 2 six times over: 2&times;2&times;2&times;2&times;2&times;2 = 64." },
+    { q: "You borrow &pound;500 at 12% simple annual interest, to be repaid in full after 6 months. How much do you repay in total, in pounds?", answer: 530, a: "&pound;530. Six months is half a year, so the interest is 500 &times; 0.12 &times; 0.5 = 30, and the total repayment is the original &pound;500 plus that &pound;30 of interest." },
+    { q: "If &pound;1 is worth &yen;190, how many pounds is &yen;9500?", answer: 50, a: "&pound;50. Divide by the exchange rate to convert back the other way: 9500 &divide; 190 = 50." },
+    { q: "A father is exactly 4 times as old as his son. The father is 32. How old is the son?", answer: 8, a: "8 years old. If the father's age is 4 times the son's, the son's age is the father's divided by 4: 32 &divide; 4 = 8." },
+    { q: "A &pound;180 restaurant bill was meant to be split equally between 5 friends, but 2 of them left without paying, so the remaining 3 have to cover the whole bill equally between themselves. How much does each of the 3 pay, in pounds?", answer: 60, a: "&pound;60 each. The number of friends splitting changed, but the total bill didn't &mdash; it's still &pound;180, just now divided by 3 instead of 5: 180 &divide; 3 = 60." },
+    { q: "A car does 45 miles per gallon. How many gallons of fuel does it need for a 270 mile trip?", answer: 6, a: "6 gallons. Divide the distance by the miles you get per gallon: 270 &divide; 45 = 6." },
+    { q: "Your salary is &pound;3000 a month. You get a 5% raise, and then some months later a further 5% raise calculated on your new (already-raised) salary. What is your monthly salary now, in pounds?", answer: 3307.5, a: "&pound;3307.50. 3000 &times; 1.05 = 3150 after the first raise, then 3150 &times; 1.05 = 3307.5 after the second. Like the phone-discount question above, two 5% raises add up to slightly more than a flat 10%, because the second raise is calculated on a bigger number." },
+    { q: "A map has a scale of 1:25,000. If two towns are 8cm apart on the map, how many kilometres apart are they in real life?", answer: 2, a: "2km. On the map, 8cm represents 8 &times; 25,000 = 200,000cm in reality. Converting to kilometres (dividing by 100,000, since that's how many cm are in a km): 200,000 &divide; 100,000 = 2km." },
+    { q: "A meal costs &pound;56 and you want to leave a 12.5% tip. How much is the tip, in pounds?", answer: 7, a: "&pound;7. 56 &times; 0.125 = 7 &mdash; 12.5% is one eighth, so you can also just divide 56 by 8." },
+    { q: "A 64kg crate sits on a square base with sides of 1.6m. Using load = mass &divide; area, what is the load in kg per square metre?", answer: 25, a: "25 kg/m&sup2;. First work out the base area: 1.6 &times; 1.6 = 2.56. Then divide the mass by that: 64 &divide; 2.56 = 25." },
+  ];
+
+  function dayOfYear(d) {
+    const start = new Date(d.getFullYear(), 0, 0);
+    const diff = d - start;
+    return Math.floor(diff / 86400000);
+  }
+
+  const today = new Date();
+  const doy = dayOfYear(today);
+  const problemIndex = doy % PROBLEMS.length;
+  const problem = PROBLEMS[problemIndex];
+  const todayKey = today.toISOString().slice(0, 10);
+
+  document.getElementById('problem-q').innerHTML = problem.q;
+  document.getElementById('problem-a').innerHTML = problem.a;
+  document.getElementById('problem-modline').innerHTML =
+    `day ${doy} mod ${PROBLEMS.length} = <span>${problemIndex}</span>`;
+
+  (function setupDailyChallenge() {
+    const STORE_KEY = 'y4sh_daily_challenge';
+    const COOLDOWN_MS = 10 * 60 * 1000;
+
+    const streakEl = document.getElementById('problem-streak');
+    const feedbackEl = document.getElementById('daily-feedback');
+    const attemptView = document.getElementById('daily-attempt-view');
+    const solvedView = document.getElementById('daily-solved-view');
+    const solvedBadge = document.getElementById('daily-solved-badge');
+    const answerBox = document.getElementById('problem-answer');
+    const giveUpBtn = document.getElementById('give-up-btn');
+    const submitBtn = document.getElementById('calc-submit');
+    const display = document.getElementById('calc-display');
+    const memIndicator = document.getElementById('calc-mem-indicator');
+
+    let storageOK = true;
+    let data = { lastSolvedDate: null, streak: 0, totalSolved: 0, attempt: null, history: null, best: 0 };
+    try {
+      const raw = localStorage.getItem(STORE_KEY);
+      if (raw) data = Object.assign(data, JSON.parse(raw));
+    } catch (err) {
+      storageOK = false;
+    }
+
+    const DAY_MS = 86400000;
+    const keyOf = (ms) => new Date(ms).toISOString().slice(0, 10);
+    if (!data.history || typeof data.history !== 'object') {
+      data.history = {};
+      if (data.lastSolvedDate && data.streak > 0) {
+        const end = Date.parse(data.lastSolvedDate + 'T00:00:00Z');
+        for (let i = 0; i < data.streak; i++) data.history[keyOf(end - i * DAY_MS)] = 's';
+      }
+    }
+    data.best = Math.max(data.best || 0, data.streak || 0);
+    function pruneHistory() {
+      const cutoff = keyOf(Date.parse(todayKey + 'T00:00:00Z') - 400 * DAY_MS);
+      Object.keys(data.history).forEach((k) => { if (k < cutoff) delete data.history[k]; });
+    }
+
+    function save() {
+      if (!storageOK) return;
+      try { localStorage.setItem(STORE_KEY, JSON.stringify(data)); } catch (err) {  }
+    }
+
+    function renderStreak() {
+      if (!streakEl) return;
+      if (!storageOK) { streakEl.remove(); return; }
+      const dayWord = data.totalSolved === 1 ? 'day' : 'days';
+      const best = data.best > data.streak ? ` &middot; best ${data.best}` : '';
+      streakEl.innerHTML = `<span class="flame">&#128293; ${data.streak}-day streak</span> &middot; ${data.totalSolved} ${dayWord} solved${best}`;
+      renderHistory();
+    }
+
+    function renderHistory() {
+      const box = document.getElementById('streak-history');
+      if (!box) return;
+      if (!storageOK) { box.remove(); return; }
+      const WEEKS = 2;
+      const todayMs = Date.parse(todayKey + 'T00:00:00Z');
+      const dow = (new Date(todayMs).getUTCDay() + 6) % 7;
+      const startMs = todayMs - (dow + (WEEKS - 1) * 7) * DAY_MS;
+      let cells = ['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((d) => `<span class="sh-day" aria-hidden="true">${d}</span>`).join(''), solved = 0;
+      for (let i = 0; i < WEEKS * 7; i++) {
+        const ms = startMs + i * DAY_MS, k = keyOf(ms), v = data.history[k];
+        let cls = 'sh-cell', label = k;
+        if (ms > todayMs) cls += ' future';
+        else if (v === 's') { cls += ' s'; label += ': solved'; solved++; }
+        else if (v === 'g') { cls += ' g'; label += ': gave up'; }
+        else label += ': no solve';
+        if (k === todayKey) cls += ' today';
+        cells += `<span class="${cls}" title="${label}"></span>`;
+      }
+      box.innerHTML =
+        `<div class="sh-grid" role="img" aria-label="Last ${WEEKS} weeks: ${solved} days solved">${cells}</div>` +
+        `<div class="sh-legend"><span><i style="background:var(--accent2)"></i>solved</span>` +
+        `<span><i style="background:#D9645A;opacity:.85"></i>gave up</span>` +
+        `<span><i style="background:var(--graphite);opacity:.3"></i>missed</span><span>last ${WEEKS} weeks</span></div>`;
+    }
+
+    function showSolvedView() {
+      attemptView.style.display = 'none';
+      solvedView.style.display = 'block';
+      solvedBadge.textContent = '\u2713 solved for today \u2014 come back tomorrow for a new one';
+      answerBox.classList.add('open');
+    }
+
+    function showGaveUpView() {
+      attemptView.style.display = 'none';
+      solvedView.style.display = 'block';
+      solvedBadge.textContent = 'solution revealed \u2014 streak reset, come back tomorrow for a new one';
+      answerBox.classList.add('open');
+    }
+
+    let entry = '0';
+    let touched = false;
+    let stored = null;
+    let pendingOp = null;
+    let overwrite = false;
+    let memory = 0;
+
+    const OP_SYMBOLS = { add: '+', subtract: '&minus;', multiply: '&times;', divide: '&divide;' };
+
+    function compute(a, op, b) {
+      switch (op) {
+        case 'add': return a + b;
+        case 'subtract': return a - b;
+        case 'multiply': return a * b;
+        case 'divide': return b === 0 ? NaN : a / b;
+        default: return b;
+      }
+    }
+
+    function formatNumber(n) {
+      if (!Number.isFinite(n)) return 'Error';
+
+      const rounded = Math.round(n * 1e9) / 1e9;
+      return String(rounded);
+    }
+
+    function renderCalc() {
+      display.value = touched ? entry : '';
+      memIndicator.classList.toggle('active', memory !== 0);
+      const opIndicatorEl = document.getElementById('calc-op-indicator');
+      opIndicatorEl.innerHTML = pendingOp ? OP_SYMBOLS[pendingOp] : '';
+    }
+
+    function pressDigit(d) {
+      touched = true;
+      if (overwrite || entry === '0') {
+        entry = d;
+        overwrite = false;
+      } else {
+        entry = entry + d;
+      }
+      if (entry.length > 14) entry = entry.slice(0, 14);
+      renderCalc();
+    }
+
+    function pressDecimal() {
+      touched = true;
+      if (overwrite) {
+        entry = '0.';
+        overwrite = false;
+      } else if (!entry.includes('.')) {
+        entry = entry + '.';
+      }
+      renderCalc();
+    }
+
+    function pressOperator(op) {
+      touched = true;
+      const current = parseFloat(entry) || 0;
+      if (stored !== null && pendingOp && !overwrite) {
+        stored = compute(stored, pendingOp, current);
+        entry = formatNumber(stored);
+      } else {
+        stored = current;
+      }
+      pendingOp = op;
+      overwrite = true;
+      renderCalc();
+    }
+
+    function pressEquals() {
+      touched = true;
+      if (pendingOp === null || stored === null) return;
+      const current = parseFloat(entry) || 0;
+      const result = compute(stored, pendingOp, current);
+      entry = formatNumber(result);
+      stored = null;
+      pendingOp = null;
+      overwrite = true;
+      renderCalc();
+    }
+
+    function pressAction(action) {
+      touched = true;
+      const current = parseFloat(entry) || 0;
+      if (action === 'sqrt') {
+        entry = current < 0 ? 'Error' : formatNumber(Math.sqrt(current));
+        overwrite = true;
+      } else if (action === 'percent') {
+        entry = formatNumber(current / 100);
+        overwrite = true;
+      } else if (action === 'sign') {
+        entry = formatNumber(current * -1);
+      } else if (action === 'mplus') {
+        memory += current;
+        overwrite = true;
+      } else if (action === 'mminus') {
+        memory -= current;
+        overwrite = true;
+      } else if (action === 'mr') {
+        entry = formatNumber(memory);
+        overwrite = true;
+      } else if (action === 'mc') {
+        memory = 0;
+      } else if (action === 'c') {
+        entry = '0';
+        touched = false;
+        overwrite = false;
+      } else if (action === 'ac') {
+        entry = '0';
+        touched = false;
+        stored = null;
+        pendingOp = null;
+        overwrite = false;
+        memory = 0;
+      }
+      renderCalc();
+    }
+
+    function pressBackspace() {
+      if (overwrite) return;
+      entry = entry.length > 1 ? entry.slice(0, -1) : '0';
+      if (entry === '-') entry = '0';
+      touched = entry !== '0';
+      renderCalc();
+    }
+
+    document.getElementById('calc-widget').addEventListener('click', (e) => {
+      const btn = e.target.closest('.calc-btn');
+      if (!btn) return;
+      const action = btn.dataset.action;
+      if (btn.dataset.digit !== undefined) {
+        pressDigit(btn.dataset.digit);
+      } else if (action === 'decimal') {
+        pressDecimal();
+      } else if (action === 'equals') {
+        pressEquals();
+      } else if (action === 'submit') {
+        handleSubmit();
+      } else if (['add', 'subtract', 'multiply', 'divide'].includes(action)) {
+        pressOperator(action);
+      } else if (action) {
+        pressAction(action);
+      }
+    });
+
+    const calcToggleBtn = document.getElementById('calc-toggle-btn');
+    const calcGridWrap = document.getElementById('calc-grid-wrap');
+    const calcToggleLabel = document.getElementById('calc-toggle-label');
+    calcToggleBtn.addEventListener('click', () => {
+      const isOpen = calcGridWrap.classList.toggle('open');
+      calcToggleBtn.setAttribute('aria-expanded', String(isOpen));
+      calcToggleLabel.textContent = isOpen ? 'close calculator' : 'open calculator';
+    });
+
+    const KEY_TO_OP = { '+': 'add', '-': 'subtract', '*': 'multiply', '/': 'divide' };
+
+    display.addEventListener('input', () => {
+      let v = display.value.replace(/[^\d.]/g, '');
+      const dot = v.indexOf('.');
+      if (dot !== -1) v = v.slice(0, dot + 1) + v.slice(dot + 1).replace(/\./g, '');
+      display.value = v;
+      entry = v === '' ? '0' : v;
+      touched = v !== '';
+      overwrite = false;
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      const typing = e.target === display;
+      const open = calcGridWrap.classList.contains('open');
+      if (!typing && !open) return;
+
+      const key = e.key;
+      const isNumKey = /^[0-9.]$/.test(key);
+
+      if (typing && (isNumKey || key === 'Backspace')) {
+        if (overwrite && isNumKey) {
+          entry = '0';
+          overwrite = false;
+          display.value = '';
+        }
+        return;
+      }
+
+      if (key === 'Enter' && typing) {
+        e.preventDefault();
+        if (open && pendingOp !== null) pressEquals();
+        else handleSubmit();
+        return;
+      }
+      if (!open) return;
+
+      if (/^[0-9]$/.test(key)) pressDigit(key);
+      else if (key === '.') pressDecimal();
+      else if (Object.prototype.hasOwnProperty.call(KEY_TO_OP, key)) pressOperator(KEY_TO_OP[key]);
+      else if (key === 'Enter' || key === '=') pressEquals();
+      else if (key === 'Backspace') pressBackspace();
+      else if (key === 'Escape') pressAction('ac');
+      else if (key === '%') pressAction('percent');
+      else return;
+      e.preventDefault();
+    });
+
+    function remainingCooldownMs() {
+      if (!data.attempt || data.attempt.date !== todayKey || !data.attempt.lastWrongAt) return 0;
+      return Math.max(0, COOLDOWN_MS - (Date.now() - data.attempt.lastWrongAt));
+    }
+
+    let cooldownTimer = null;
+    function updateCooldownUI() {
+      const remaining = remainingCooldownMs();
+      if (remaining <= 0) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'submit';
+        if (cooldownTimer) { clearInterval(cooldownTimer); cooldownTimer = null; }
+        return;
+      }
+      submitBtn.disabled = true;
+      const m = Math.floor(remaining / 60000);
+      const s = Math.floor((remaining % 60000) / 1000);
+      submitBtn.textContent = `wait ${m}:${String(s).padStart(2, '0')}`;
+      feedbackEl.className = 'daily-feedback wrong';
+      feedbackEl.textContent = `not quite \u2014 try again in ${m}:${String(s).padStart(2, '0')}`;
+    }
+
+    function handleSubmit() {
+      if (remainingCooldownMs() > 0) return;
+      const given = parseFloat(entry);
+      if (Number.isNaN(given)) return;
+
+      if (given === problem.answer) {
+        const prevDate = data.lastSolvedDate ? new Date(data.lastSolvedDate) : null;
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        const wasYesterday = prevDate && prevDate.toISOString().slice(0, 10) === yesterday.toISOString().slice(0, 10);
+        data.streak = wasYesterday ? data.streak + 1 : 1;
+        data.totalSolved += 1;
+        data.lastSolvedDate = todayKey;
+        data.attempt = null;
+        data.best = Math.max(data.best || 0, data.streak);
+        data.history[todayKey] = 's';
+        pruneHistory();
+        save();
+        renderStreak();
+        feedbackEl.className = 'daily-feedback correct';
+        feedbackEl.textContent = 'correct! \u2713';
+        showSolvedView();
+      } else {
+        data.attempt = { date: todayKey, lastWrongAt: Date.now() };
+        save();
+        updateCooldownUI();
+        if (!cooldownTimer) cooldownTimer = setInterval(updateCooldownUI, 1000);
+      }
+    }
+
+    giveUpBtn.addEventListener('click', () => {
+      data.streak = 0;
+      data.attempt = null;
+      data.history[todayKey] = 'g';
+      pruneHistory();
+      save();
+      renderStreak();
+      showGaveUpView();
+    });
+
+    renderStreak();
+    renderCalc();
+    if (data.lastSolvedDate === todayKey) {
+      showSolvedView();
+    } else {
+      updateCooldownUI();
+      if (remainingCooldownMs() > 0) cooldownTimer = setInterval(updateCooldownUI, 1000);
+    }
+  })();
+
+  (function setupProbSim() {
+    const questionBlock = document.getElementById('prob-question-block');
+    const resultEl = document.getElementById('prob-result');
+    const simEl = document.getElementById('prob-sim');
+    const canvas = document.getElementById('earth-canvas');
+    const ctx = canvas.getContext('2d');
+    const slider = document.getElementById('earth-slider');
+    const playBtn = document.getElementById('earth-play');
+    const nameEl = document.getElementById('earth-name');
+    const timeEl = document.getElementById('earth-time');
+    const descEl = document.getElementById('earth-desc');
+
+    const EPOCHS = [
+      { n: 'The Big Bang', t: '13.8 billion years ago', d: 'All space, time and energy erupt from a single point and begin to expand.', lava: 0, sea: 0.7, ice: 0, clump: 0, impact: 0, moon: 0, dist: 1.250, ocean: [14, 35, 70], land: [60, 30, 25], atmo: [255, 120, 40], cloud: 0, real: 0 },
+      { n: 'Solar nebula', t: '4.6 billion years ago', d: 'A cloud of gas and dust collapses into a spinning disk around the young Sun.', lava: 0, sea: 0.7, ice: 0, clump: 0, impact: 0, moon: 0, dist: 1.250, ocean: [14, 35, 70], land: [60, 30, 25], atmo: [255, 120, 40], cloud: 0, real: 0 },
+      { n: 'Molten Earth', t: '4.5 billion years ago', d: 'Rock melts under constant impacts. The whole surface is a glowing ocean of magma.', lava: 1, sea: -1, ice: 0, clump: 0, impact: 0, moon: 0, dist: 1.250, ocean: [14, 35, 70], land: [60, 30, 25], atmo: [255, 120, 40], cloud: 0.1, real: 0 },
+      { n: 'Giant impact', t: '4.5 billion years ago', d: 'A Mars-sized planet called Theia smashes into the young Earth and throws out a ring of molten debris.', lava: 1, sea: -1, ice: 0, clump: 0, impact: 1, moon: 0, dist: 1.250, ocean: [14, 35, 70], land: [60, 30, 25], atmo: [255, 120, 40], cloud: 0.1, real: 0 },
+      { n: 'The Moon forms', t: '4.4 billion years ago', d: 'The debris pulls together into the Moon, which orbits far closer than it does today.', lava: 0.7, sea: -1, ice: 0, clump: 0, impact: 0, moon: 1, dist: 1.250, ocean: [14, 35, 70], land: [60, 30, 25], atmo: [255, 120, 40], cloud: 0.1, real: 0 },
+      { n: 'Late bombardment', t: '4.1 billion years ago', d: 'Asteroids and comets keep pounding the surface, and they may have delivered much of Earth\'s water.', lava: 0.3, sea: -1, ice: 0, clump: 0, impact: 0.6, moon: 1, dist: 1.317, ocean: [14, 35, 70], land: [75, 62, 58], atmo: [200, 125, 85], cloud: 0.25, real: 0 },
+      { n: 'First oceans', t: '4.0 billion years ago', d: 'The crust cools, steam rains down for thousands of years, and the first oceans fill the basins.', lava: 0.1, sea: 0.74, ice: 0, clump: 0, impact: 0, moon: 1, dist: 1.373, ocean: [14, 35, 70], land: [75, 62, 58], atmo: [200, 125, 85], cloud: 0.35, real: 0 },
+      { n: 'First life', t: '3.5 billion years ago', d: 'Simple microbes appear in the oceans. The air is still toxic and orange-brown.', lava: 0, sea: 0.7, ice: 0, clump: 0.15, impact: 0, moon: 1, dist: 1.429, ocean: [20, 80, 110], land: [112, 86, 60], atmo: [175, 130, 90], cloud: 0.3, real: 0 },
+      { n: 'Oxygen revolution', t: '2.4 billion years ago', d: 'Microbes flood the air with oxygen and the sky turns blue for the first time.', lava: 0, sea: 0.64, ice: 0.05, clump: 0.3, impact: 0, moon: 1, dist: 1.474, ocean: [25, 95, 160], land: [112, 86, 60], atmo: [120, 170, 255], cloud: 0.4, real: 0 },
+      { n: 'Rodinia', t: '1.1 billion years ago', d: 'The continents gather into the supercontinent Rodinia, with only simple life in the seas.', lava: 0, sea: 0.6, ice: 0.03, clump: 0.9, impact: 0, moon: 1, dist: 1.519, ocean: [22, 100, 170], land: [128, 122, 72], atmo: [120, 170, 255], cloud: 0.4, real: 0 },
+      { n: 'Snowball Earth', t: '700 million years ago', d: 'Ice sheets spread to the equator and freeze almost the entire planet.', lava: 0, sea: 0.6, ice: 1, clump: 0.2, impact: 0, moon: 1, dist: 1.553, ocean: [40, 100, 150], land: [205, 215, 225], atmo: [150, 190, 255], cloud: 0.5, real: 0 },
+      { n: 'Cambrian explosion', t: '540 million years ago', d: 'Life erupts into countless new forms, and animals with shells, eyes and legs appear.', lava: 0, sea: 0.6, ice: 0.05, clump: 0.35, impact: 0, moon: 1, dist: 1.586, ocean: [20, 105, 182], land: [128, 122, 72], atmo: [120, 170, 255], cloud: 0.4, real: 0 },
+      { n: 'Plants reach land', t: '470 million years ago', d: 'The first plants creep out of the water, and the bare continents start to turn green.', lava: 0, sea: 0.6, ice: 0.04, clump: 0.5, impact: 0, moon: 1, dist: 1.598, ocean: [20, 105, 182], land: [96, 126, 70], atmo: [120, 170, 255], cloud: 0.45, real: 0 },
+      { n: 'Carboniferous forests', t: '330 million years ago', d: 'Giant swampy forests cover the land, and the air is rich with oxygen. Insects grow enormous.', lava: 0, sea: 0.58, ice: 0, clump: 0.7, impact: 0, moon: 1, dist: 1.609, ocean: [20, 105, 182], land: [58, 120, 56], atmo: [120, 170, 255], cloud: 0.5, real: 0 },
+      { n: 'Pangaea', t: '300 million years ago', d: 'All the land joins into one supercontinent surrounded by a single giant ocean.', lava: 0, sea: 0.57, ice: 0, clump: 1, impact: 0, moon: 1, dist: 1.614, ocean: [16, 105, 190], land: [140, 128, 76], atmo: [120, 170, 255], cloud: 0.45, real: 0 },
+      { n: 'The Great Dying', t: '252 million years ago', d: 'Huge volcanic eruptions poison the air and oceans, and nearly all species die.', lava: 0.2, sea: 0.57, ice: 0, clump: 1, impact: 0, moon: 1, dist: 1.614, ocean: [16, 105, 190], land: [120, 95, 60], atmo: [205, 150, 70], cloud: 0.35, real: 0 },
+      { n: 'Age of dinosaurs', t: '150 million years ago', d: 'Pangaea splits apart. The climate is warm, there are no ice caps, and dinosaurs rule.', lava: 0, sea: 0.57, ice: 0, clump: 0.5, impact: 0, moon: 1, dist: 1.620, ocean: [16, 105, 190], land: [70, 135, 60], atmo: [120, 170, 255], cloud: 0.5, real: 0 },
+      { n: 'Dinosaurs end', t: '66 million years ago', d: 'An asteroid slams into the planet and ends the age of the dinosaurs.', lava: 0, sea: 0.57, ice: 0, clump: 0.4, impact: 1, moon: 1, dist: 1.620, ocean: [16, 105, 190], land: [70, 135, 60], atmo: [120, 170, 255], cloud: 0.5, real: 0 },
+      { n: 'Ice age', t: '20 thousand years ago', d: 'Ice sheets bury the north, sea levels drop, and early humans spread across the world.', lava: 0, sea: 0.52, ice: 0.55, clump: 0, impact: 0, moon: 1, dist: 1.620, ocean: [16, 105, 190], land: [150, 152, 142], atmo: [120, 170, 255], cloud: 0.45, real: 0 },
+      { n: 'Earth today', t: 'now', d: 'Seven continents, deep blue oceans, polar ice, and eight billion people.', lava: 0, sea: 0.55, ice: 0, clump: 0, impact: 0, moon: 1, dist: 1.620, ocean: [12, 84, 170], land: [84, 140, 70], atmo: [120, 170, 255], cloud: 0.3, real: 1 }
+    ];
+    const KEYS = ['lava', 'sea', 'ice', 'clump', 'impact', 'moon', 'dist', 'cloud', 'real'];
+    const CKEYS = ['ocean', 'land', 'atmo'];
+    const LAST = EPOCHS.length - 1;
+
+    const MW = 512, MH = 256;
+    let hmap = null, cmap = null, wmap = null;
+
+    function hash(x, y, z) {
+      let h = Math.imul(x, 374761393) ^ Math.imul(y, 668265263) ^ Math.imul(z, 1274126177);
+      h = Math.imul(h ^ (h >>> 13), 1274126177);
+      return ((h ^ (h >>> 16)) >>> 0) / 4294967295;
+    }
+    function vnoise(x, y, z) {
+      const xi = Math.floor(x), yi = Math.floor(y), zi = Math.floor(z);
+      const xf = x - xi, yf = y - yi, zf = z - zi;
+      const u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf), w = zf * zf * (3 - 2 * zf);
+      const l = (a, b, t) => a + (b - a) * t;
+      return l(
+        l(l(hash(xi, yi, zi), hash(xi + 1, yi, zi), u), l(hash(xi, yi + 1, zi), hash(xi + 1, yi + 1, zi), u), v),
+        l(l(hash(xi, yi, zi + 1), hash(xi + 1, yi, zi + 1), u), l(hash(xi, yi + 1, zi + 1), hash(xi + 1, yi + 1, zi + 1), u), v),
+        w
+      );
+    }
+    function fbm(x, y, z, oct) {
+      let a = 0.5, s = 0, f = 1;
+      for (let i = 0; i < oct; i++) { s += a * vnoise(x * f, y * f, z * f); f *= 2.05; a *= 0.5; }
+      return s;
+    }
+    function buildMaps() {
+      if (hmap) return;
+      hmap = new Float32Array(MW * MH);
+      cmap = new Float32Array(MW * MH);
+      wmap = new Float32Array(MW * MH);
+      for (let j = 0; j < MH; j++) {
+        const lat = (0.5 - (j + 0.5) / MH) * Math.PI;
+        const cl = Math.cos(lat), sl = Math.sin(lat);
+        for (let i = 0; i < MW; i++) {
+          const lon = ((i + 0.5) / MW - 0.5) * Math.PI * 2;
+          const x = Math.sin(lon) * cl, y = sl, z = Math.cos(lon) * cl;
+          const k = j * MW + i;
+          hmap[k] = fbm(x * 1.7 + 11, y * 1.7 + 5, z * 1.7 + 3, 5);
+          cmap[k] = Math.abs(fbm(x * 3.2 + 40, y * 3.2 + 7, z * 3.2 + 9, 3) - 0.5);
+          wmap[k] = fbm(x * 2.6 + 90, y * 2.6 + 30, z * 2.6 + 70, 4);
+        }
+      }
+      buildReal();
+    }
+
+
+    const GEO_LAND = [[-168,65.6,-166,68.4,-162,70.3,-156.5,71.3,-152,70.8,-146,70.2,-141,69.7,-135,69.2,-130,70.2,-125,69.6,-120,69.5,-115,68,-110,68,-106,68.7,-102,67.5,-98,68,-96,68.3,-94,71.8,-91.5,69.5,-88,68.2,-84,69.5,-82,68,-86,66.5,-86,64.5,-90.7,63.5,-93.5,61,-94.2,59,-92.5,57.2,-88,56.5,-85,55.3,-82.3,55.1,-82.3,53,-80.5,51.5,-79.5,51.3,-79,52.5,-78.8,54.5,-77,56,-76.5,58,-78,60,-77.5,62.3,-74.5,62.2,-72,61.2,-70,61,-69.5,59.5,-68,58.5,-65,60.2,-62,58,-61,56,-58,54,-56,52.2,-57,51.2,-60,50.3,-64,50.2,-66.5,49.3,-68.5,48.5,-67,49,-65,48.8,-64.8,47.5,-64.8,46.2,-63.5,46.2,-61.2,45.8,-60,46.2,-60.3,45.3,-63,44.5,-65.8,43.5,-66,43.7,-67,44.5,-69,44,-70.3,43.6,-70.8,42.8,-70.5,41.8,-71.5,41.4,-73.9,40.6,-74.1,39.7,-75.5,38.3,-75.8,37.2,-75.9,36.9,-75.5,35.3,-77,34.6,-78.5,33.8,-80.5,32.2,-81.4,30.7,-81,29,-80.3,27,-80.1,25.8,-80.5,25.2,-81.2,25.2,-81.9,26.5,-82.7,27.8,-82.7,29,-83.5,29.9,-84.5,30,-85.5,29.7,-87,30.4,-88.5,30.3,-89.5,30.2,-89.3,29,-90.5,29.1,-91.8,29.5,-93.8,29.7,-95.2,28.8,-96.7,28,-97.4,26.8,-97.3,25,-97.8,22.5,-97.3,20.8,-96.2,19.2,-95.2,18.5,-94.5,18.2,-92,18.5,-91,19,-90.4,20,-90.3,21.1,-88,21.5,-86.8,21,-87.5,19.5,-87.7,18.3,-88.2,16.5,-88.7,15.8,-87.5,15.8,-85.5,15.9,-83.5,15.2,-83.3,13,-83.7,11.2,-82.5,9.8,-81,9,-79.5,9.6,-78,9.3,-77.4,8.6,-77.3,7.8,-78,7.5,-79.5,7.3,-80.5,7.3,-81.8,8,-83,8.3,-84,9,-85.5,10,-85.7,11,-87.5,13,-89,13.5,-91.5,14,-92.8,15,-94.5,16.2,-96.5,15.7,-98.5,16.4,-101,17.3,-102.5,18,-104.5,19.2,-105.5,20.5,-105.3,22,-106.5,23.3,-108,25,-109.5,26.5,-111,28,-112.5,29.5,-113.5,31,-114.7,31.7,-114.7,30,-113.5,28.5,-112.3,27,-111,25,-110,23.5,-109.5,23,-110.3,23.2,-111.7,24.5,-112.2,25.5,-113,26.5,-114.2,27.8,-115.2,29,-116.3,30.5,-117.1,32.5,-117.5,33.3,-118.5,34,-120.5,34.5,-121.8,36.6,-122.5,37.7,-123.8,39.5,-124.3,40.5,-124.2,42.5,-124,44.5,-124,46.3,-124.5,48.3,-123,48.3,-123.2,49.2,-124.8,49.9,-126,50.7,-127.5,51,-128.5,52.5,-130,54.3,-131.5,55.5,-133,57,-135.3,58.5,-137.5,59,-140,59.8,-144,60,-147,60.7,-150,59.6,-152.5,59,-154,58.5,-156.5,57,-159.5,55.8,-162.5,55,-164.5,54.6,-163,55.5,-160,56.3,-158.5,57.5,-157.5,58.7,-158.5,58.8,-161.5,58.6,-162,60,-164.5,60.7,-165.5,62.4,-163.5,63.2,-161,63.6,-161,64.5,-165,64.5],
+      [-77.3,7.8,-76,9,-75.5,10.8,-72,12,-71.5,10.8,-70,12,-68,10.6,-64,10.6,-62,10.7,-60.5,8.5,-58,6.5,-55,5.8,-52,5,-50,1.5,-50,0,-48,-1,-44.5,-2.5,-40,-2.8,-37,-4.8,-35,-5.5,-34.8,-8,-37,-11.5,-39,-14,-39,-18,-40.5,-21,-42,-23,-45,-23.7,-48,-26,-48.5,-28.5,-51,-31,-53.5,-34.2,-55,-35,-57,-34.5,-58,-34.2,-57,-36.5,-57.5,-38,-62,-39,-62.5,-41,-65,-41,-65,-45,-67.5,-46.5,-66,-48,-69,-51,-68.4,-52.4,-65,-54.8,-68,-55.5,-72,-54,-74,-52,-75.5,-48,-74,-44,-73.6,-40,-73.4,-37,-72,-33,-71.5,-30,-70.3,-25,-70.2,-19,-72,-17,-75,-15,-76.5,-13.5,-78.5,-10,-81,-6,-81,-4.5,-80,-2.5,-80,-1,-80,0.8,-78.8,1.8,-77.5,4,-77.3,6.5],
+      [-9,37,-8.8,38.7,-9.4,39.4,-8.8,41.5,-9.2,43,-8,43.7,-4,43.5,-1.8,43.4,-1.3,44.5,-1.2,46,-2.5,47.3,-4.7,48,-4.5,48.7,-1.6,48.6,-1.3,49.6,0.2,49.5,1.6,50.9,3.5,51.4,4.5,52.5,5,53.3,7,53.5,8.6,53.9,8.6,55.5,8.1,56.8,10.5,57.7,10.5,56.5,9.8,55.5,10.9,54.3,13,54.4,14.2,53.9,16.5,54.5,18.7,54.7,19.5,54.4,21,55.2,21.1,56.8,22,57.6,23.5,57,24.4,57.3,24.4,58.4,23.5,59.2,25.5,59.5,28,59.5,30.2,59.9,28,60.5,25,60.3,22.5,60,21.4,61,21.3,62.7,22.5,64,25,65,25.4,65.3,23.5,65.8,21.5,65.2,21,64.2,19,63.1,17.5,62.2,17.3,61,17.2,60.4,18.7,59.8,18.1,58.7,16.7,57.5,16.4,56.5,14.3,55.5,13,55.4,12.8,56.2,12.2,57.2,11.7,58.4,11.2,59,10.5,59.3,9,58.7,7.2,58.1,5.7,58.6,5.2,59.5,5,61,5.2,62,7,62.9,8.5,63.5,11,64.8,12.5,66,14,67.3,15,68.2,17.5,69.4,19.5,70,23,70.6,26,71,28.5,71,31.2,70.3,33,69.6,36,69,41,67.2,43,66.5,44.5,68.3,46,68,49,68.2,53,68.5,57,68.7,60,69,63,69.5,66,69.3,67.5,70.5,68.5,72.2,71,73,72.5,72.8,73.5,71,75,72,79,72.2,81,73.4,86,74,88,75,95,76,100,76.2,104,77.6,107,77,111,76.3,113,75.5,112.5,74.3,118,73.5,123,73,128,72.5,130,71,133,71.5,140,72.8,145,72.4,150,71.5,156,71,160,70,165,69.7,170,70,175,69.8,180,69.2,185,69,190,66.5,187,64.3,182,64.6,179.5,62.7,177,62.4,174,61.7,170,60,166,60,164,59.3,163,57.8,162.5,56,163,55,160,53,158.5,52,156.8,51,155.7,54,156.3,57,158,58.5,160,61.5,157,61.7,154,59.5,150,59.3,143,59.3,140,57.5,137.5,54.5,140.5,53.5,141.5,52,141.2,49.5,140,47.5,138,46,135.5,43.7,133,42.7,131,42.5,130.5,42,129.5,40.8,127.5,39.5,128.5,38.2,129.4,36.5,129.2,35.2,127.5,34.6,126.4,34.5,126.5,36.5,126.8,37.6,125.2,37.7,125.3,39.5,124.5,39.8,122,39,121.2,38.8,121.6,40.5,120,40,118.5,39.2,117.7,38.5,118.8,37.4,120.8,37.8,122.5,37.2,120.8,36.5,119.5,35.2,120.5,34,121.8,31.8,121.8,30.8,122,29.5,121,28,120,26.5,119,25,117,23.5,115,22.7,113.5,22.2,111,21.5,110.5,20.3,109.8,21.3,108,21.5,106.7,20.3,105.7,19,106.5,18,108,16,108.8,15,109.3,12.5,109,11.5,107.5,10.5,106.5,9.8,105,8.7,104.8,10.2,103.5,10.7,102.5,12,101,12.7,100.5,13.4,99.8,12.2,99.2,10.5,100,8.5,100.5,7,101.5,6.5,102.6,5.2,103.5,3.5,103.8,2,103.3,1.4,102,2.3,101,3.3,100.5,5,100.2,6.3,99.5,7.5,98.5,8.5,98.2,10.2,98.7,12.5,98,14.5,97.5,16.5,96.2,16.8,95.2,15.8,94.4,16.5,94.2,18.5,93.5,19.8,92.3,21,91.8,22.3,90.5,22.2,89,21.8,87,21.5,86.5,20,85,19.5,83.5,18,82,16.8,81,15.8,80.2,15,80.2,13,79.9,11.5,79.8,10.3,79,9.3,78.2,8.8,77.5,8.1,76.5,9.5,75.7,11.5,74.8,13,74.2,15,73.4,17,72.8,19.5,72.7,21.5,72,21,70.8,20.8,69.2,22.2,70.2,22.9,68.5,23.7,67.2,24.5,66.5,25.3,64,25.2,61.6,25.2,59.5,25.4,57.4,25.8,56.8,27,54.5,26.6,52.5,27.5,51,28.8,50,30,48.8,30.1,48,29.8,48.4,28.5,49.6,27,50.5,26,50.8,24.8,51.6,24.2,51.5,25.3,52,24,54,24.2,55.5,25.5,56.3,26.3,56.6,24.8,57.5,23.8,58.8,23.5,59.8,22.3,58.7,20.5,57.8,19,55.5,17.6,52.3,16.3,49,14.4,45.5,13,43.5,12.7,42.8,14.8,42,16.5,40.8,19,39.2,21.4,37.5,24.3,35.3,27.5,35,28.5,34.9,29.5,34.3,31.2,35,33,35.9,35,36.2,36.6,35.5,36.7,34.7,36.8,33,36.1,32,36.2,30.6,36.6,29.3,36.3,28,36.7,27.3,37.1,26.4,38.3,26.8,39.4,26.2,40,26,40.8,24.7,40.9,23.8,40.3,23.2,40.2,22.7,40.3,22.9,39.4,23.6,38.4,24,38,23.1,37.6,23.2,36.5,22.4,36.6,21.7,37,21.1,38.4,20.3,39.5,19.4,40.4,19.5,41.7,18.7,42.4,17.5,43,15.8,43.7,15,44.5,14.3,45.2,13.7,45.6,12.3,45.3,12.3,44.5,13.6,43.5,14.5,42.2,16,41.9,16.8,41.2,18.4,40.3,18.5,40.1,17.3,40.4,16.7,39.7,17.1,38.95,16.5,38.4,16,37.95,15.7,38.4,16,39.5,15.7,40,14.9,40.2,14.2,40.8,13.2,41.2,12,42,11,42.6,10.3,43.5,9,44.3,8,43.8,7,43.5,5.5,43.2,4,43.5,3.1,43,3.2,42,2.3,41.5,0.8,41,0,40,-0.3,39.3,0.2,38.7,-0.7,37.8,-1.7,36.8,-2.5,36.7,-4.4,36.6,-5.3,36,-6.3,36.7,-7.4,37.2],
+      [32.6,29.9,33.6,27.8,34.8,25.5,36,23,37.2,21,37.5,18.8,38.6,17.8,39.5,15.5,41,14,42.7,13,43.3,11.8,45,10.7,47.5,11.2,49.5,11.5,51.2,11.8,51,10.4,50.8,8.5,49.8,6.5,48.5,5,47.5,4,46,2.5,44,1,42.5,-0.5,41.5,-1.8,40.3,-2.7,39.2,-4.6,39.3,-6.3,39.6,-8.5,40.5,-10.5,40.6,-12.5,40.7,-14.5,39.2,-16.5,37,-17.8,35,-19.5,34.8,-20.5,35.5,-22.5,35.5,-24,33,-25.5,32.9,-26.8,32.8,-28.5,31.5,-29.8,30,-31.2,28.5,-32.5,26.5,-33.7,25.3,-34,23,-34,21,-34.5,20,-34.8,18.6,-34.2,18.3,-33,17.8,-31.5,16.8,-29,15.5,-27.2,14.8,-25,14.5,-22.8,13.2,-20.5,12,-18,11.8,-16.5,12.5,-14,13.6,-11.5,13.2,-9,12.4,-6.5,12.2,-5,11.8,-4,10,-2.2,9.2,-0.5,9.5,1.5,9.8,3.3,9.5,4,8.3,4.5,7,4.4,6,4.3,5,5.3,4.5,6.2,2.5,6.3,0.5,5.8,-1.5,5,-3,5.1,-5,5.1,-7.5,4.4,-8.5,4.8,-10,5.8,-11.5,6.9,-13,8.4,-13.5,9.5,-14.7,10.8,-16.5,12.2,-16.8,13.6,-17.5,14.7,-16.8,16,-16.2,18,-16.3,19.8,-17,21,-16,23.7,-14.8,25.3,-13.2,27.3,-11.5,28.3,-10,29.8,-9.7,31,-9.2,32.3,-8,33.3,-6.8,34,-5.9,35.6,-3,35.3,-1,35.5,1,36.5,3,36.8,5,36.8,7.5,37,9.7,37.3,10.7,37,11,36.5,10.3,35.5,10.1,34.4,11,33.2,12.5,32.8,15,32.4,15.8,31.5,18.5,30.3,19.5,30.3,20.2,31.8,21.5,32.8,23,32.6,25,31.8,27,31.3,29,30.9,31,31.6,32.3,31.3,34.2,31.3,34.9,29.5,34.6,28,34.2,27.8,33.6,28.5,32.9,29.8],
+      [113.5,-22,114,-26,115,-34.3,117.5,-35.1,121,-33.9,124,-33.8,126.5,-32.3,129,-31.6,131.5,-31.5,134,-32.7,135.5,-34.7,137.8,-33,138.5,-35.5,139.8,-37.3,141.5,-38.3,144,-38.3,146.3,-39.1,148.2,-37.8,150,-37.3,151.2,-34,153,-31,153.6,-28.5,153,-25.5,150.8,-22.8,149,-20.2,146.3,-18.8,145.3,-15,143.5,-14,142.5,-10.7,141.5,-13,141.5,-16,139.5,-17.5,137,-15.8,135.5,-15,136.8,-12.2,132.5,-11.5,130,-13,129.3,-14.9,127,-14,125,-15,123,-17,121.5,-19.5,119,-20,116.5,-20.8,114,-22],
+      [-180,-90,-180,-78,-160,-77.5,-150,-76,-130,-74,-110,-74.5,-100,-73,-80,-73.5,-76,-72,-72,-70,-68,-66,-62,-64,-57,-63.3,-58,-64.7,-61,-66,-62,-69,-61,-72,-60,-75,-50,-77.5,-40,-78,-30,-77,-20,-73,-5,-70.5,10,-69.5,25,-70,40,-68,55,-67,68,-67.5,72,-69.5,78,-68,90,-66,110,-66.5,130,-66,145,-67.5,160,-70.5,165,-74,170,-77,180,-78.5,180,-90],
+      [-73,78,-58,82,-30,83.5,-20,81,-18,77,-20,72,-22,70,-27,68,-35,66,-40,65,-43,60,-48,61,-51,64,-53,67,-55,70,-58,75.5,-68,76.5],
+      [-59,47.7,-56,51.5,-55.5,51.3,-53,47,-53,46.7,-57,47.5],
+      [-85,22,-82,23.2,-77,21.8,-74.2,20.3,-77.5,19.9,-80,21.8],
+      [-74.4,19.8,-72,19.9,-68.4,18.6,-71,17.8,-74.4,18.4],
+      [-90,73,-80,73.8,-72,71.5,-67,69,-62,66.5,-64,63,-68,62.5,-72,64,-78,64.8,-73,67.5,-80,69.5,-88,70.5],
+      [-118,70,-105,69.5,-101,70,-104,73,-113,73,-118,72],
+      [-90,77,-80,76,-75,79,-65,82,-80,83,-95,81],
+      [-92,75,-82,74.5,-80,76,-90,76.5],
+      [-125,72,-117,72,-117,74.5,-124,74.5],
+      [-24,65.5,-22,66.4,-16,66.5,-13.5,65,-18,63.4,-22,63.8],
+      [-5.7,50,1.3,51.2,1.7,52.7,0,53.5,-1.5,55,-2,57,-3,58.6,-5,58.6,-6,57,-5.5,56,-4.8,55,-3,54.8,-3,53.4,-4.5,53.3,-4.2,52,-5.2,51.7,-3,51.4,-4.5,51],
+      [-10,51.7,-6,52.2,-6,54,-5.5,54.7,-7.5,55.3,-10,54,-9.5,53,-10.3,52.3],
+      [12.4,38,15.6,38.3,15.1,36.7,12.5,37.6],
+      [8.2,41,9.7,41,9.6,39.2,8.5,39],
+      [8.6,42.3,9.5,43,9.4,41.4],
+      [23.5,35.4,26.2,35.2,24,35],
+      [32.3,35,34.5,35.6,33.5,34.7],
+      [11,79,20,80.5,27,80,18,77.5],
+      [51.5,71,57,70.7,68,76.8,60,76.5],
+      [142,54,143.5,53,143,50,142.5,47,142,46,141.8,49,142,52],
+      [130.9,34,132,35.5,135,35.7,137,37,139.5,38,140,40.5,141.5,41.4,142,39.5,141,37,140.8,35.7,139.8,35,138,34.6,136.8,34.3,135.2,33.6,135,34.6,133,34.2,131,33.9],
+      [140,41.5,140.5,43,141.7,45.4,145.5,43.5,143.2,42,141,42.5],
+      [129.7,33,131,34,132,33,131.3,31.3,130.2,31.2],
+      [132.5,33.5,134.5,34.2,134.2,33.2,133,32.8],
+      [120.2,22.5,121,25.2,122,25,121.5,22],
+      [108.7,19.2,110,20,111,19.6,109.5,18.2],
+      [79.8,9.5,80.8,9,81.8,7.5,81,6,80,6.2,79.7,8],
+      [120,18.5,122.2,18.3,122,16,124,13.5,122,13.8,120.6,14.2,120,16],
+      [122,7.5,123.5,8.5,126,9,126.5,7,125.5,5.8,124,6.5],
+      [121,13,123,13.2,123.5,10.5,122.5,9.5,121.5,11],
+      [124.5,12.5,125.7,11.5,125,10,124.3,11],
+      [95.3,5.5,98,4,100,2,104,-1,106,-3,105.8,-5.8,104.5,-5.8,101,-3,99,-0.5,97,2.5],
+      [105.2,-6.8,106.5,-6,108.5,-6.5,111,-6.5,114.5,-7.8,114.4,-8.7,110,-8.2,106,-7.4],
+      [109,2,111,1.5,113,3.2,115.5,5.2,117,7,119,5.2,118,2,117.8,1,116.5,-1.5,116.2,-3.8,114.5,-4,111.5,-3.3,110.2,-2.5,109,-0.5],
+      [119.8,0.8,121,1.3,124.8,1.5,125,1,123,0.7,121.5,0.3,122,-1,123.3,-0.8,121.8,-2.2,122.3,-4.5,121,-4.8,120.4,-5.5,120.3,-3,119.5,-3.5,118.8,-2.5,119.5,0],
+      [131,-0.8,133,-0.7,134.5,-1.3,135.5,-3.3,137.5,-1.5,141,-2.6,144.5,-3.8,146,-5.5,147.5,-6.2,148.5,-8.2,150.5,-10.4,147.5,-10.2,145,-8,143.5,-8.5,141.5,-9.2,139,-8.2,138,-7.5,138.2,-5.5,135.5,-4.4,133,-4,132,-2.7],
+      [144.7,-40.8,148.3,-40.9,148,-43,146.2,-43.6,145.2,-42],
+      [172.7,-34.5,174.5,-36.5,176,-37.5,178.5,-37.7,177,-39.5,175.2,-41.5,174.8,-41,174.7,-39.5,173.8,-39.3,174.5,-37.2],
+      [172.7,-40.5,174.3,-41.5,173,-43.5,171,-44.5,169,-46.6,166.5,-46,168.5,-44,170.8,-42.5,172,-41],
+      [49.3,-12.1,50.4,-15.4,49.4,-18,47.3,-24.5,45,-25.5,43.6,-22.5,44.4,-19,44,-16.5,46,-15.7,48,-13.5]];
+    const GEO_WATER = [[28,41.5,28.5,43.8,30,45.3,31.5,46.5,33.5,46,32.7,45.4,33.6,44.4,35.5,45.1,36.6,45.3,37.8,47,39,47,38.5,45,40,43.5,41.6,41.6,38,41,35,42,31,41.2,29.2,41.2],
+      [47.5,43,47,45,49,46.5,51.5,47,53,46.5,53,45,50.8,44.5,50.2,43.2,51.3,41.5,53,40,53.8,38,54,37,51,36.7,49,37.5,49.5,40.5,48.5,42],
+      [-92,46.8,-89,48,-85,48.7,-84.5,47,-87,46.5],
+      [-88,42.5,-87.5,45.8,-86,46,-85,45,-86.5,43],
+      [-84.5,46,-82,46,-80,44.5,-81.7,43.2,-83.5,43.7,-84,45]];
+    let rmap = null, bmap = null, imap = null;
+    const BIOME_STOPS = [
+      [0, [30, 104, 48]], [10, [58, 120, 52]], [18, [110, 140, 62]], [28, [148, 146, 84]],
+      [38, [86, 132, 62]], [50, [60, 112, 62]], [60, [44, 94, 62]], [67, [92, 112, 88]],
+      [74, [150, 160, 160]], [90, [178, 186, 188]]
+    ];
+
+    function smooth(a, b, x) { const t = Math.max(0, Math.min(1, (x - a) / (b - a))); return t * t * (3 - 2 * t); }
+    function boxw(lon, lat, l0, l1, b0, b1, s) {
+      return smooth(l0 - s, l0 + s, lon) * (1 - smooth(l1 - s, l1 + s, lon)) * smooth(b0 - s, b0 + s, lat) * (1 - smooth(b1 - s, b1 + s, lat));
+    }
+
+    function buildReal() {
+      const c = document.createElement('canvas');
+      c.width = MW; c.height = MH;
+      const g = c.getContext('2d');
+      g.fillStyle = '#000'; g.fillRect(0, 0, MW, MH);
+      const X = (lon) => (lon + 180) / 360 * MW, Y = (lat) => (90 - lat) / 180 * MH;
+      const poly = (p, dx) => {
+        g.beginPath();
+        for (let i = 0; i < p.length; i += 2) {
+          const x = X(p[i] + dx), y = Y(p[i + 1]);
+          if (i === 0) g.moveTo(x, y); else g.lineTo(x, y);
+        }
+        g.closePath(); g.fill();
+      };
+      g.fillStyle = '#fff';
+      GEO_LAND.forEach((p) => { poly(p, 0); poly(p, -360); });
+      g.fillStyle = '#000';
+      GEO_WATER.forEach((p) => poly(p, 0));
+      const d = g.getImageData(0, 0, MW, MH).data;
+      let a = new Float32Array(MW * MH), b = new Float32Array(MW * MH);
+      for (let i = 0; i < a.length; i++) a[i] = d[i * 4] / 255;
+      for (let pass = 0; pass < 2; pass++) {
+        for (let j = 0; j < MH; j++) for (let i = 0; i < MW; i++) {
+          const l = (i + MW - 1) % MW, r = (i + 1) % MW;
+          b[j * MW + i] = (a[j * MW + l] + a[j * MW + i] * 2 + a[j * MW + r]) / 4;
+        }
+        for (let j = 0; j < MH; j++) for (let i = 0; i < MW; i++) {
+          const u = Math.max(0, j - 1), w = Math.min(MH - 1, j + 1);
+          a[j * MW + i] = (b[u * MW + i] + b[j * MW + i] * 2 + b[w * MW + i]) / 4;
+        }
+      }
+      rmap = new Float32Array(MW * MH);
+      bmap = new Uint8Array(MW * MH * 3);
+      imap = new Float32Array(MW * MH);
+      for (let j = 0; j < MH; j++) {
+        const lat = 90 - (j + 0.5) / MH * 180, alat = Math.abs(lat);
+        for (let i = 0; i < MW; i++) {
+          const lon = (i + 0.5) / MW * 360 - 180;
+          const k = j * MW + i;
+          const m = a[k];
+          rmap[k] = 0.55 + (m - 0.5) * 0.7 + (hmap[k] - 0.5) * 0.1;
+          const la = Math.max(0, Math.min(90, alat + (wmap[k] - 0.5) * 10));
+          let col = BIOME_STOPS[BIOME_STOPS.length - 1][1];
+          for (let q = 0; q < BIOME_STOPS.length - 1; q++) {
+            const s0 = BIOME_STOPS[q], s1 = BIOME_STOPS[q + 1];
+            if (la <= s1[0]) {
+              const t = (la - s0[0]) / (s1[0] - s0[0]);
+              col = [s0[1][0] + (s1[1][0] - s0[1][0]) * t, s0[1][1] + (s1[1][1] - s0[1][1]) * t, s0[1][2] + (s1[1][2] - s0[1][2]) * t];
+              break;
+            }
+          }
+          const mixc = (t, c2) => { col = [col[0] + (c2[0] - col[0]) * t, col[1] + (c2[1] - col[1]) * t, col[2] + (c2[2] - col[2]) * t]; };
+          const nz = wmap[k], nz2 = cmap[k];
+          const sand = [216, 184, 124], red = [196, 138, 84], dry = [176, 158, 112];
+          mixc(boxw(lon, lat, -17, 36, 14.5, 31, 3) * (0.8 + 0.4 * nz), sand);
+          mixc(boxw(lon, lat, 36, 58, 15.5, 30, 3) * (0.85 + 0.3 * nz), sand);
+          mixc(boxw(lon, lat, 38, 51.5, -1, 12, 2.5) * 0.7, dry);
+          mixc(boxw(lon, lat, 14, 26, -29, -17, 2.5) * 0.8, red);
+          mixc(boxw(lon, lat, 118, 141, -31, -19, 3) * (0.8 + 0.4 * nz), red);
+          mixc(boxw(lon, lat, -118, -105, 29, 37, 2.5) * 0.75, dry);
+          mixc(boxw(lon, lat, -71.5, -68, -28, -18, 1.5) * 0.9, dry);
+          mixc(boxw(lon, lat, -72, -65, -50, -38, 2.5) * 0.55, dry);
+          mixc(boxw(lon, lat, 52, 66, 28, 41, 3) * 0.65, dry);
+          mixc(boxw(lon, lat, 68, 75, 24, 30, 2) * 0.7, dry);
+          mixc(boxw(lon, lat, 78, 90, 37.5, 41.5, 2) * 0.8, dry);
+          mixc(boxw(lon, lat, 90, 113, 38, 46.5, 3) * 0.75, dry);
+          mixc(boxw(lon, lat, 78, 100, 28, 36, 2.5) * 0.85, [150, 138, 120]);
+          mixc(boxw(lon, lat, -114, -104, 36, 52, 3) * 0.35, [112, 112, 90]);
+          mixc(boxw(lon, lat, -80, -66, -35, 8, 1.5) * 0.25 * boxw(lon, lat, -80, -68, -35, 8, 1), [130, 118, 100]);
+          mixc(boxw(lon, lat, -73, -50, -11, 3, 3) * 0.9, [22, 88, 44]);
+          mixc(boxw(lon, lat, 12, 29, -5, 4.5, 3) * 0.9, [22, 88, 44]);
+          mixc(boxw(lon, lat, 95, 141, -9, 8, 2.5) * 0.9, [24, 96, 46]);
+          const v = 0.9 + 0.2 * nz2 * 2;
+          bmap[k * 3] = Math.min(255, col[0] * v); bmap[k * 3 + 1] = Math.min(255, col[1] * v); bmap[k * 3 + 2] = Math.min(255, col[2] * v);
+          let ice = 0;
+          if (m > 0.5) {
+            if (lat < -64) ice = 1;
+            else if (lat > 66.5 && lon > -75 && lon < -11) ice = 1;
+            else if (lat > 59 && lat <= 66.5 && lon > -55 && lon < -35) ice = 1;
+            else if (lat > 76) ice = 0.55;
+            else if (lat > 66 && lat <= 76) ice = 0.12 * nz;
+          } else {
+            if (lat < 0) ice = 0.85 * smooth(63, 70, alat);
+            else ice = 0.9 * smooth(75, 82, alat);
+          }
+          imap[k] = ice;
+        }
+      }
+    }
+
+    const RES = 216;
+    const off = document.createElement('canvas');
+    off.width = RES; off.height = RES;
+    const octx = off.getContext('2d');
+    const img = octx.createImageData(RES, RES);
+    const px = img.data;
+    const LX = -0.5, LY = 0.4, LZ = 0.76;
+    const LN = Math.sqrt(LX * LX + LY * LY + LZ * LZ);
+    const PDX = Math.sin(0.9), PDZ = Math.cos(0.9);
+
+    const stars = [];
+    for (let i = 0; i < 90; i++) stars.push([Math.random(), Math.random(), Math.random() * 1.2 + 0.3, Math.random()]);
+    const dust = [];
+    for (let i = 0; i < 320; i++) dust.push({ a: Math.random() * 6.2832, r: Math.pow(Math.random(), 0.7), s: Math.random() * 1.6 + 0.4, o: Math.random() });
+
+    let u = 0, rotY = 0.6, tilt = 0.35, dragging = false, lx = 0, ly = 0;
+    let target = null, running = false, raf = 0, last = 0, playing = false, W = 0, H = 0, shown = -1;
+
+    function sm(a, b, x) { const t = Math.max(0, Math.min(1, (x - a) / (b - a))); return t * t * (3 - 2 * t); }
+    function mix(a, b, t) { return a + (b - a) * t; }
+    function mixv(A, B, t) { return [mix(A[0], B[0], t), mix(A[1], B[1], t), mix(A[2], B[2], t)]; }
+
+    function size() {
+      const r = canvas.getBoundingClientRect();
+      const d = Math.min(window.devicePixelRatio || 1, 2);
+      W = r.width; H = r.height;
+      canvas.width = Math.max(2, Math.round(W * d));
+      canvas.height = Math.max(2, Math.round(H * d));
+      ctx.setTransform(d, 0, 0, d, 0, 0);
+    }
+
+    function state() {
+      const i = Math.min(LAST - 1, Math.floor(u));
+      const f = u - i;
+      const t = f * f * (3 - 2 * f);
+      const A = EPOCHS[i], B = EPOCHS[i + 1], st = {};
+      KEYS.forEach((k) => { st[k] = mix(A[k], B[k], t); });
+      CKEYS.forEach((k) => { st[k] = mixv(A[k], B[k], t); });
+      return st;
+    }
+
+    function drawPlanet(st, cx, cy, R, time) {
+      const lava = st.lava, sea = st.sea, ice = st.ice, clump = st.clump;
+      const cosT = Math.cos(tilt), sinT = Math.sin(tilt), cosR = Math.cos(rotY), sinR = Math.sin(rotY);
+      const oc = st.ocean, ld = st.land, at = st.atmo, cloudAmt = st.cloud, real = st.real;
+      const half = RES / 2;
+      for (let j = 0; j < RES; j++) {
+        const y = (half - j - 0.5) / half;
+        for (let i = 0; i < RES; i++) {
+          const x = (i + 0.5 - half) / half;
+          const rr = x * x + y * y;
+          const o = (j * RES + i) * 4;
+          if (rr >= 1) { px[o + 3] = 0; continue; }
+          const z = Math.sqrt(1 - rr);
+          const y1 = y * cosT + z * sinT, z1 = -y * sinT + z * cosT;
+          const x2 = x * cosR - z1 * sinR, z2 = x * sinR + z1 * cosR;
+          const lon = Math.atan2(x2, z2), lat = Math.asin(y1);
+          let ti = Math.floor((lon / 6.2832 + 0.5) * MW); if (ti < 0) ti += MW; if (ti >= MW) ti -= MW;
+          const tj = Math.min(MH - 1, Math.max(0, Math.floor((0.5 - lat / Math.PI) * MH)));
+          const k = tj * MW + ti;
+          const cl = Math.sqrt(1 - y1 * y1);
+          const dot = (x2 / (cl || 1)) * PDX + (z2 / (cl || 1)) * PDZ;
+          let h = hmap[k] + clump * 0.34 * Math.exp(-(1 - dot * cl - y1 * 0.15) * 3.2) - (lat * lat) * 0.04;
+          if (real > 0.001) h = h * (1 - real) + rmap[k] * real;
+          const lit = Math.max(0, (x * LX + y * LY + z * LZ) / LN);
+          const shade = 0.07 + 0.93 * lit;
+          let r, g, b;
+          const isLand = h > sea;
+          if (isLand) {
+            let e = Math.min(1, (h - sea) * 4);
+            let lr = ld[0], lg = ld[1], lb = ld[2];
+            if (real > 0.001) {
+              e = e * (1 - real) + Math.max(0, Math.min(1, (hmap[k] - 0.38) * 2.4)) * 0.55 * real;
+              lr = mix(lr, bmap[k * 3], real); lg = mix(lg, bmap[k * 3 + 1], real); lb = mix(lb, bmap[k * 3 + 2], real);
+            }
+            r = lr * (0.78 + 0.4 * e); g = lg * (0.78 + 0.4 * e); b = lb * (0.78 + 0.4 * e);
+          } else {
+            const dpt = Math.min(1, (sea - h) * 3.2);
+            r = oc[0] * (1.15 - 0.55 * dpt); g = oc[1] * (1.15 - 0.55 * dpt); b = oc[2] * (1.15 - 0.55 * dpt);
+          }
+          const alat = Math.abs(y1);
+          const iceM = sm(1 - ice * 1.12 - 0.02, 1 - ice * 1.12 + 0.12, alat + (h - 0.5) * 0.18);
+          let iceF = iceM;
+          if (real > 0.001) iceF = Math.max(iceF, imap[k] * real);
+          if (iceF > 0) { r = mix(r, 236, iceF); g = mix(g, 244, iceF); b = mix(b, 250, iceF); }
+          r *= shade; g *= shade; b *= shade;
+          if (!isLand && iceF < 0.5 && lit > 0.2) {
+            const sp = Math.pow(lit, 26) * 70 * (1 - iceF);
+            r += sp; g += sp; b += sp;
+          }
+          if (cloudAmt > 0.01) {
+            let wi = ti + Math.floor(time * 6); wi %= MW;
+            const wv = wmap[tj * MW + wi];
+            const cv = sm(0.5, 0.78, wv) * cloudAmt * 1.2;
+            if (cv > 0) { const c = 255 * (0.12 + 0.88 * lit); r = mix(r, c, cv); g = mix(g, c, cv); b = mix(b, c, cv); }
+          }
+          if (lava > 0.01) {
+            const cr = cmap[k];
+            const glow = (1 - sm(0.0, 0.07 + 0.05 * lava, cr)) * lava;
+            const base = 0.35 + 0.65 * glow;
+            r = mix(r, 255 * base, glow); g = mix(g, 110 * base + 30 * glow, glow); b = mix(b, 20 * glow, glow);
+            r += 40 * lava * (1 - lit); g += 6 * lava * (1 - lit);
+          }
+          const rim = Math.pow(1 - z, 2.4);
+          const ar = rim * (0.35 + 0.65 * Math.max(lit, 0.25));
+          r += at[0] * ar * 0.9; g += at[1] * ar * 0.9; b += at[2] * ar * 0.9;
+          px[o] = r > 255 ? 255 : r; px[o + 1] = g > 255 ? 255 : g; px[o + 2] = b > 255 ? 255 : b; px[o + 3] = 255;
+        }
+      }
+      octx.putImageData(img, 0, 0);
+      const halo = ctx.createRadialGradient(cx, cy, R * 0.92, cx, cy, R * 1.28);
+      halo.addColorStop(0, 'rgba(' + (at[0] | 0) + ',' + (at[1] | 0) + ',' + (at[2] | 0) + ',0.42)');
+      halo.addColorStop(1, 'rgba(' + (at[0] | 0) + ',' + (at[1] | 0) + ',' + (at[2] | 0) + ',0)');
+      ctx.fillStyle = halo;
+      ctx.beginPath(); ctx.arc(cx, cy, R * 1.28, 0, 6.2832); ctx.fill();
+      ctx.drawImage(off, cx - R, cy - R, R * 2, R * 2);
+    }
+
+    function drawCosmic(cx, cy, R, alpha, time) {
+      const burst = Math.min(1, u * 2.2);
+      const flat = sm(0.5, 1, u);
+      const spin = time * 0.25;
+      const flash = Math.max(0, 1 - u * 2.6);
+      if (flash > 0) {
+        const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * (0.4 + 2.2 * burst));
+        g.addColorStop(0, 'rgba(255,250,235,' + (0.95 * flash) + ')');
+        g.addColorStop(0.4, 'rgba(255,170,80,' + (0.4 * flash) + ')');
+        g.addColorStop(1, 'rgba(255,90,20,0)');
+        ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+      }
+      const core = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 0.55);
+      core.addColorStop(0, 'rgba(255,225,160,' + (0.9 * alpha * sm(0.3, 1, u)) + ')');
+      core.addColorStop(1, 'rgba(255,150,60,0)');
+      ctx.fillStyle = core; ctx.beginPath(); ctx.arc(cx, cy, R * 0.55, 0, 6.2832); ctx.fill();
+      for (let i = 0; i < dust.length; i++) {
+        const d = dust[i];
+        const rad = d.r * R * (0.12 + 1.9 * burst) * (1 - 0.35 * flat);
+        const a = d.a + spin * (1.4 - d.r) * flat + d.r * 3 * flat;
+        const x = cx + Math.cos(a) * rad;
+        const y = cy + Math.sin(a) * rad * mix(1, 0.32, flat);
+        const c = d.o > 0.5 ? '255,205,150' : '170,200,255';
+        ctx.fillStyle = 'rgba(' + c + ',' + (alpha * (0.35 + 0.5 * d.o)) + ')';
+        ctx.beginPath(); ctx.arc(x, y, d.s, 0, 6.2832); ctx.fill();
+      }
+    }
+
+    function drawImpact(st, cx, cy, R, time) {
+      const k = st.impact;
+      if (k <= 0.02) return;
+      for (let n = 0; n < 3; n++) {
+        const tt = (time * 0.55 + n * 0.33) % 1;
+        const sx = cx + R * (1.9 + n * 0.25) - tt * R * 1.2, sy = cy - R * (1.5 - n * 0.35) + tt * R * 0.95;
+        const g = ctx.createLinearGradient(sx + R * 0.8, sy - R * 0.6, sx, sy);
+        g.addColorStop(0, 'rgba(255,140,40,0)');
+        g.addColorStop(1, 'rgba(255,220,160,' + k + ')');
+        ctx.strokeStyle = g; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.moveTo(sx + R * 0.8, sy - R * 0.6); ctx.lineTo(sx, sy); ctx.stroke();
+        ctx.fillStyle = 'rgba(255,230,190,' + k + ')';
+        ctx.beginPath(); ctx.arc(sx, sy, 4, 0, 6.2832); ctx.fill();
+      }
+    }
+
+    function moonPos(st, cx, cy, R, time) {
+      const a = time * 0.3;
+      return { x: cx + Math.cos(a) * st.dist * R, y: cy - Math.sin(a) * st.dist * R * 0.2 - R * 0.12, z: Math.sin(a) };
+    }
+
+    function drawMoon(st, m, R) {
+      const r = R * (0.25 - 0.13 * sm(1.25, 1.62, st.dist));
+      const g = ctx.createRadialGradient(m.x - r * 0.4, m.y - r * 0.4, r * 0.1, m.x, m.y, r);
+      g.addColorStop(0, 'rgb(215,210,200)');
+      g.addColorStop(1, 'rgb(70,68,66)');
+      ctx.globalAlpha = Math.min(1, st.moon);
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(m.x, m.y, r, 0, 6.2832); ctx.fill();
+      ctx.fillStyle = 'rgba(40,38,36,0.28)';
+      ctx.beginPath(); ctx.arc(m.x - r * 0.3, m.y + r * 0.25, r * 0.22, 0, 6.2832); ctx.fill();
+      ctx.beginPath(); ctx.arc(m.x + r * 0.35, m.y - r * 0.2, r * 0.15, 0, 6.2832); ctx.fill();
+      ctx.beginPath(); ctx.arc(m.x + r * 0.1, m.y + r * 0.5, r * 0.12, 0, 6.2832); ctx.fill();
+      if (st.lava > 0.05) {
+        ctx.fillStyle = 'rgba(255,100,25,' + Math.min(0.55, st.lava * 0.7) + ')';
+        ctx.beginPath(); ctx.arc(m.x, m.y, r, 0, 6.2832); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    function frame(t) {
+      if (!running) return;
+      raf = requestAnimationFrame(frame);
+      const dtms = Math.min(64, t - last);
+      if (dtms < 30) return;
+      last = t;
+      const dt = dtms / 1000;
+      if (playing) {
+        u += dt * (LAST / 75);
+        if (u >= LAST) { u = LAST; playing = false; playBtn.textContent = 'replay'; }
+        slider.value = Math.round((u / LAST) * 1000);
+      }
+      if (target !== null) {
+        u += (target - u) * Math.min(1, dt * 4.5);
+        if (Math.abs(target - u) < 0.003) { u = target; target = null; }
+        slider.value = Math.round((u / LAST) * 1000);
+      }
+      if (!dragging) rotY += dt * 0.28;
+      const time = t / 1000;
+      ctx.clearRect(0, 0, W, H);
+      const bg = ctx.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, Math.max(W, H) * 0.7);
+      bg.addColorStop(0, '#0d1428'); bg.addColorStop(1, '#03050b');
+      ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+      for (let i = 0; i < stars.length; i++) {
+        const s = stars[i];
+        ctx.fillStyle = 'rgba(255,255,255,' + (0.25 + 0.5 * Math.abs(Math.sin(time * 0.8 + s[3] * 9))) + ')';
+        ctx.fillRect(s[0] * W, s[1] * H, s[2], s[2]);
+      }
+      const cx = W / 2, cy = H / 2, R = Math.min(W, H) * 0.36;
+      if (u < 2) drawCosmic(cx, cy, R, 1 - sm(1, 2, u), time);
+      if (u > 1) {
+        const sc = sm(1, 2, u);
+        const st = state();
+        const m = st.moon > 0.01 ? moonPos(st, cx, cy, R, time) : null;
+        if (m && m.z < 0) drawMoon(st, m, R);
+        drawPlanet(st, cx, cy, R * (0.15 + 0.85 * sc), time);
+        if (m && m.z >= 0) drawMoon(st, m, R);
+        drawImpact(st, cx, cy, R, time);
+      }
+      const idx = Math.min(LAST, Math.round(u));
+      if (idx !== shown) {
+        shown = idx;
+        nameEl.textContent = EPOCHS[idx].n;
+        timeEl.textContent = EPOCHS[idx].t;
+        descEl.textContent = EPOCHS[idx].d;
+        slider.setAttribute('aria-valuetext', EPOCHS[idx].n + ', ' + EPOCHS[idx].t);
+      }
+    }
+
+    function start() {
+      if (running) return;
+      buildMaps();
+      running = true; last = 0;
+      raf = requestAnimationFrame(frame);
+    }
+    function stop() { running = false; cancelAnimationFrame(raf); }
+
+    slider.addEventListener('input', () => { u = (slider.value / 1000) * LAST; target = null; playing = false; playBtn.textContent = 'play'; });
+    function step(dir) {
+      playing = false;
+      playBtn.textContent = 'play';
+      const base = target !== null ? target : Math.round(u);
+      target = Math.max(0, Math.min(LAST, base + dir));
+    }
+    document.getElementById('earth-today').addEventListener('click', () => {
+      playing = false; playBtn.textContent = 'play';
+      target = LAST;
+    });
+    canvas.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { step(1); e.preventDefault(); }
+      else if (e.key === 'ArrowLeft') { step(-1); e.preventDefault(); }
+      else if (e.key === 'Home') { playing = false; playBtn.textContent = 'play'; target = 0; e.preventDefault(); }
+      else if (e.key === 'End') { playing = false; playBtn.textContent = 'play'; target = LAST; e.preventDefault(); }
+    });
+    let wantRun = false, inView = true;
+    function sync() { if (wantRun && inView && !document.hidden) start(); else stop(); }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((en) => { inView = en[0].isIntersecting; sync(); }).observe(canvas);
+    }
+    document.addEventListener('visibilitychange', sync);
+    document.getElementById('earth-prev').addEventListener('click', () => step(-1));
+    document.getElementById('earth-next').addEventListener('click', () => step(1));
+    playBtn.addEventListener('click', () => {
+      if (u >= LAST - 0.01) { u = 0; slider.value = 0; }
+      target = null;
+      playing = !playing;
+      playBtn.textContent = playing ? 'pause' : 'play';
+    });
+    canvas.addEventListener('pointerdown', (e) => { dragging = true; lx = e.clientX; ly = e.clientY; canvas.setPointerCapture(e.pointerId); });
+    canvas.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      rotY -= (e.clientX - lx) * 0.01;
+      tilt = Math.max(-0.7, Math.min(0.7, tilt + (e.clientY - ly) * 0.006));
+      lx = e.clientX; ly = e.clientY;
+    });
+    const endDrag = () => { dragging = false; };
+    canvas.addEventListener('pointerup', endDrag);
+    canvas.addEventListener('pointercancel', endDrag);
+    window.addEventListener('resize', () => { if (running) size(); });
+
+    document.getElementById('prob-yes').addEventListener('click', () => {
+      questionBlock.style.display = 'none';
+      simEl.style.display = 'block';
+      size();
+      wantRun = true;
+      start();
+    });
+    document.getElementById('prob-no').addEventListener('click', () => {
+      questionBlock.style.display = 'none';
+      resultEl.style.display = 'block';
+    });
+    document.getElementById('prob-close').addEventListener('click', () => {
+      wantRun = false;
+      stop();
+      playing = false; playBtn.textContent = 'play';
+      u = 0; target = null; slider.value = 0; shown = -1;
+      simEl.style.display = 'none';
+      resultEl.style.display = 'none';
+      questionBlock.style.display = '';
+    });
+  })();
+
+  function drawDoodle() {
+    const dCanvas = document.getElementById('problem-doodle');
+    const dctx = dCanvas.getContext('2d');
+    const size = 40;
+    dCanvas.width = size * devicePixelRatio;
+    dCanvas.height = size * devicePixelRatio;
+    dCanvas.style.width = size + 'px';
+    dCanvas.style.height = size + 'px';
+    dctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+
+    const petalSeed = (doy % 7) + 2;
+    const k = petalSeed;
+    const cx = size / 2, cy = size / 2;
+    const R = size * 0.42;
+
+    dctx.beginPath();
+    for (let a = 0; a <= Math.PI * 2 + 0.05; a += 0.02) {
+      const r = R * Math.cos(k * a);
+      const x = cx + r * Math.cos(a);
+      const y = cy + r * Math.sin(a);
+      if (a === 0) dctx.moveTo(x, y); else dctx.lineTo(x, y);
+    }
+    const roseColor = getComputedStyle(document.documentElement).getPropertyValue('--accent2').trim() || '#59DDCB';
+    dctx.strokeStyle = roseColor;
+    dctx.lineWidth = 1.4;
+    dctx.stroke();
+  }
+  drawDoodle();
+  window.addEventListener('resize', drawDoodle);
+
+  const COUNTER_KEY = "manlikey4sh-math-profile";
+
+  function isPrime(n) {
+    if (n < 2) return false;
+    for (let i = 2; i * i <= n; i++) if (n % i === 0) return false;
+    return true;
+  }
+
+  function isFibonacci(n) {
+    const isPerfectSquareCheck = (x) => Number.isInteger(Math.sqrt(x));
+    return isPerfectSquareCheck(5 * n * n + 4) || isPerfectSquareCheck(5 * n * n - 4);
+  }
+
+  function isPerfectSquare(n) {
+    return Number.isInteger(Math.sqrt(n));
+  }
+
+  function isTriangular(n) {
+    const k = (Math.sqrt(8 * n + 1) - 1) / 2;
+    return Number.isInteger(k);
+  }
+
+  const SUPERSCRIPT_DIGITS = {
+    '0': '\u2070', '1': '\u00B9', '2': '\u00B2', '3': '\u00B3', '4': '\u2074',
+    '5': '\u2075', '6': '\u2076', '7': '\u2077', '8': '\u2078', '9': '\u2079',
+  };
+  function toSuperscript(n) {
+    return String(n).split('').map((d) => SUPERSCRIPT_DIGITS[d] || d).join('');
+  }
+
+  function primeFactorization(n) {
+    let num = n;
+    const factors = {};
+    for (let p = 2; p * p <= num; p++) {
+      while (num % p === 0) {
+        factors[p] = (factors[p] || 0) + 1;
+        num /= p;
+      }
+    }
+    if (num > 1) factors[num] = (factors[num] || 0) + 1;
+    return Object.entries(factors)
+      .map(([base, exp]) => (exp > 1 ? `${base}${toSuperscript(exp)}` : base))
+      .join(" &times; ");
+  }
+
+  function describeNumber(n) {
+    if (n < 2) return "the beginning";
+    if (isPrime(n)) return "prime";
+    if (isFibonacci(n)) return "a Fibonacci number";
+    if (isPerfectSquare(n)) return `a perfect square (${Math.sqrt(n)}${toSuperscript(2)})`;
+    if (isTriangular(n)) return "a triangular number";
+    return `= ${primeFactorization(n)}`;
+  }
+
+  const VISIT_CACHE_KEY = 'y4sh_visit_cache';
+  const VISIT_SESSION_KEY = 'y4sh_visit_counted';
+  const visitLineEl = document.getElementById('visit-line');
+
+  function renderVisit(n, stale) {
+    visitLineEl.dataset.state = stale ? 'stale' : 'ok';
+    visitLineEl.classList.remove('loading');
+    const num = `<span class="n">#${n.toLocaleString()}</span>`;
+    visitLineEl.innerHTML = stale
+      ? `last count seen: ${num} &mdash; live counter unavailable &middot; <button class="visit-retry" type="button">retry</button>`
+      : `visitor ${num} &mdash; <span class="property">${describeNumber(n)}</span>`;
+  }
+
+  async function fetchWithTimeout(url, ms) {
+    const ctl = new AbortController();
+    const t = setTimeout(() => ctl.abort(), ms);
+    try { return await fetch(url, { signal: ctl.signal, cache: 'no-store' }); }
+    finally { clearTimeout(t); }
+  }
+
+  async function loadVisitCount(manual) {
+    let cached = null, counted = false;
+    try { cached = JSON.parse(localStorage.getItem(VISIT_CACHE_KEY) || 'null'); } catch (e) {}
+    try { counted = sessionStorage.getItem(VISIT_SESSION_KEY) === '1'; } catch (e) {}
+
+    if (!manual && counted && cached && Number.isFinite(cached.n)) { renderVisit(cached.n, false); return; }
+
+    visitLineEl.dataset.state = 'loading';
+    visitLineEl.classList.add('loading');
+    visitLineEl.textContent = 'counting visitors\u2026';
+
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        const res = await fetchWithTimeout(`https://countapi.mileshilliard.com/api/v1/hit/${COUNTER_KEY}`, 6000);
+        if (!res.ok) throw new Error('counter request failed');
+        const data = await res.json();
+        const n = Number(data?.value ?? data?.count);
+        if (!Number.isFinite(n)) throw new Error('unexpected response shape');
+        try { localStorage.setItem(VISIT_CACHE_KEY, JSON.stringify({ n, at: Date.now() })); } catch (e) {}
+        try { sessionStorage.setItem(VISIT_SESSION_KEY, '1'); } catch (e) {}
+        renderVisit(n, false);
+        return;
+      } catch (err) {
+        if (attempt === 0) await new Promise((r) => setTimeout(r, 1500));
+      }
+    }
+
+    visitLineEl.classList.remove('loading');
+    if (cached && Number.isFinite(cached.n)) {
+      renderVisit(cached.n, true);
+    } else {
+      visitLineEl.dataset.state = 'offline';
+      visitLineEl.innerHTML = 'visitor counter is offline right now &middot; <button class="visit-retry" type="button">retry</button>';
+    }
+  }
+  visitLineEl.addEventListener('click', (e) => {
+    if (e.target.closest('.visit-retry')) loadVisitCount(true);
+  });
+  window.addEventListener('online', () => {
+    const st = visitLineEl.dataset.state;
+    if (st === 'offline' || st === 'stale') loadVisitCount(true);
+  });
+  loadVisitCount();
+
+  const canvas = document.getElementById('curve-field');
+  const ctx = canvas.getContext('2d');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const U_SEG = 56, V_SEG = 8;
+  const MOBIUS_R = 1.0, MOBIUS_HALF_W = 0.42;
+
+  function mobiusPoint(u, v) {
+    const cu2 = Math.cos(u / 2), su2 = Math.sin(u / 2);
+    return [
+      (MOBIUS_R + v * cu2) * Math.cos(u),
+      (MOBIUS_R + v * cu2) * Math.sin(u),
+      v * su2,
+    ];
+  }
+
+  const mobiusGrid = [];
+  for (let i = 0; i < U_SEG; i++) {
+    const u = (i / U_SEG) * Math.PI * 2;
+    const row = [];
+    for (let j = 0; j <= V_SEG; j++) {
+      const v = -MOBIUS_HALF_W + (2 * MOBIUS_HALF_W) * (j / V_SEG);
+      row.push(mobiusPoint(u, v));
+    }
+    mobiusGrid.push(row);
+  }
+
+  const MOBIUS_TRIS = [];
+  for (let i = 0; i < U_SEG; i++) {
+    const iNext = (i + 1) % U_SEG;
+    for (let j = 0; j < V_SEG; j++) {
+      const a = mobiusGrid[i][j];
+      const b = mobiusGrid[iNext][j];
+      const c = mobiusGrid[iNext][j + 1];
+      const d = mobiusGrid[i][j + 1];
+      MOBIUS_TRIS.push([a, b, c]);
+      MOBIUS_TRIS.push([a, c, d]);
+    }
+  }
+
+  const LIGHT_DIR = normalize3([0.5, 0.65, 0.85]);
+
+  function normalize3(v) {
+    const len = Math.hypot(v[0], v[1], v[2]);
+    return [v[0] / len, v[1] / len, v[2] / len];
+  }
+  function cross3(a, b) {
+    return [
+      a[1] * b[2] - a[2] * b[1],
+      a[2] * b[0] - a[0] * b[2],
+      a[0] * b[1] - a[1] * b[0],
+    ];
+  }
+  function sub3(a, b) { return [a[0] - b[0], a[1] - b[1], a[2] - b[2]]; }
+  function dot3(a, b) { return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]; }
+
+  function hexToRgb(hex) {
+    const h = hex.trim().replace('#', '');
+    const n = h.length === 3
+      ? h.split('').map((c) => c + c).join('')
+      : h;
+    const num = parseInt(n, 16);
+    return [(num >> 16) & 255, (num >> 8) & 255, num & 255];
+  }
+
+  let mobiusRgb = [143, 169, 242];
+  let mobiusPaper = '#0B1220';
+  function updateMobiusColors() {
+    const style = getComputedStyle(document.documentElement);
+    mobiusRgb = hexToRgb(style.getPropertyValue('--indigo').trim() || '#8FA9F2');
+    mobiusPaper = style.getPropertyValue('--paper').trim() || '#0B1220';
+  }
+  updateMobiusColors();
+
+  const DPR = Math.min(window.devicePixelRatio || 1, 1.5);
+  function resize() {
+    canvas.width = window.innerWidth * DPR;
+    canvas.height = window.innerHeight * DPR;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    updateMobiusColors();
+  }
+  let resizeTimer = 0;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { resize(); if (reduceMotion) drawMobius(); }, 120);
+  });
+  document.addEventListener('themechange', () => {
+    updateMobiusColors();
+    if (reduceMotion) drawMobius();
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (reduceMotion) return;
+    cancelAnimationFrame(frameId);
+    lastT = 0;
+    if (!document.hidden) frameId = requestAnimationFrame(drawMobius);
+  });
+  resize();
+
+  let rx = 0.55, ry = 0, frameId = 0, lastT = 0;
+  function drawMobius(t) {
+    if (canvas.hidden) return;
+    const dtMs = lastT ? Math.min(50, (t || 0) - lastT) : 16.7;
+    lastT = t || 0;
+    if (!reduceMotion) { rx += 0.0026 * dtMs / 16.7; ry += 0.0041 * dtMs / 16.7; }
+    const w = window.innerWidth, h = window.innerHeight;
+    ctx.clearRect(0, 0, w, h);
+
+    const cx = w / 2, cy = h * 0.38;
+    const scale = Math.min(w, h) * 0.34;
+
+    const cosX = Math.cos(rx), sinX = Math.sin(rx);
+    const cosY = Math.cos(ry), sinY = Math.sin(ry);
+
+    const rotatePoint = ([x, y, z]) => {
+      const x1 = x * cosY + z * sinY;
+      const z1 = -x * sinY + z * cosY;
+      const y2 = y * cosX - z1 * sinX;
+      const z2 = y * sinX + z1 * cosX;
+      return [x1, y2, z2];
+    };
+
+    const camDist = 4.4;
+    const project = (v) => {
+      const zf = camDist / (camDist - v[2]);
+      return { x: cx + v[0] * zf * scale, y: cy + v[1] * zf * scale };
+    };
+
+    const tris = MOBIUS_TRIS.map(([a, b, c]) => {
+      const va = rotatePoint(a), vb = rotatePoint(b), vc = rotatePoint(c);
+      const normal = normalize3(cross3(sub3(vb, va), sub3(vc, va)));
+      const avgZ = (va[2] + vb[2] + vc[2]) / 3;
+
+      const brightness = Math.abs(dot3(normal, LIGHT_DIR));
+      return { va, vb, vc, avgZ, brightness };
+    });
+    tris.sort((t1, t2) => t1.avgZ - t2.avgZ);
+
+    tris.forEach((t) => {
+      const pa = project(t.va), pb = project(t.vb), pc = project(t.vc);
+
+      const alpha = 0.10 + t.brightness * 0.30;
+      ctx.fillStyle = `rgba(${mobiusRgb[0]}, ${mobiusRgb[1]}, ${mobiusRgb[2]}, ${alpha})`;
+      ctx.beginPath();
+      ctx.moveTo(pa.x, pa.y);
+      ctx.lineTo(pb.x, pb.y);
+      ctx.lineTo(pc.x, pc.y);
+      ctx.closePath();
+      ctx.fill();
+    });
+
+    const vignette = ctx.createRadialGradient(cx, cy, scale * 0.4, cx, cy, Math.max(w, h) * 0.75);
+    vignette.addColorStop(0, 'rgba(0,0,0,0)');
+    vignette.addColorStop(1, mobiusPaper);
+    ctx.save();
+    ctx.globalAlpha = 0.35;
+    ctx.fillStyle = vignette;
+    ctx.fillRect(0, 0, w, h);
+    ctx.restore();
+
+    if (!reduceMotion) {
+      frameId = requestAnimationFrame(drawMobius);
+    }
+  }
+  drawMobius();
+</script>
+
+<script>
+(function () {
+  const bar = document.createElement('div');
+  bar.id = 'scroll-bar';
+  document.body.appendChild(bar);
+  let ticking = false;
+  function paintBar() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(paintBar); }
+  }, { passive: true });
+  paintBar();
+
+  const sel = '.glass-card, .link-row, .problem-card';
+  let active = null, pending = null, raf = 0;
+  function apply() {
+    raf = 0;
+    if (!pending) return;
+    const r = pending.card.getBoundingClientRect();
+    pending.card.style.setProperty('--mx', (pending.x - r.left) + 'px');
+    pending.card.style.setProperty('--my', (pending.y - r.top) + 'px');
+    pending = null;
+  }
+  document.addEventListener('pointermove', function (e) {
+    const card = e.target.closest ? e.target.closest(sel) : null;
+    if (card !== active) {
+      if (active) active.style.setProperty('--g', '0');
+      active = card;
+      if (active) active.style.setProperty('--g', '1');
+    }
+    if (card) {
+      pending = { card: card, x: e.clientX, y: e.clientY };
+      if (!raf) raf = requestAnimationFrame(apply);
+    }
+  }, { passive: true });
+  document.addEventListener('pointerleave', function () {
+    if (active) active.style.setProperty('--g', '0');
+    active = null;
+  });
+
+  const container = document.getElementById('links-container');
+  if (container) {
+    new IntersectionObserver(function (entries, io) {
+      if (entries.some(function (en) { return en.isIntersecting; })) { container.classList.add('rows-in'); io.disconnect(); }
+    }, { threshold: 0.05 }).observe(container);
+    new MutationObserver(function () {
+      Array.prototype.forEach.call(container.children, function (el, i) {
+        el.style.setProperty('--i', i);
+        el.style.transitionDelay = '0s, 0s, 0s, 0s, 0s';
+      });
+    }).observe(container, { childList: true });
+  }
+})();
+</script>
+<script>
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const c = document.createElement('canvas');
+  c.id = 'fx';
+  document.body.insertBefore(c, document.body.firstChild);
+  const spot = document.createElement('div');
+  spot.id = 'spot';
+  document.body.insertBefore(spot, c.nextSibling);
+  const ctx = c.getContext('2d');
+  let w = 0, h = 0, pts = [], mx = -9999, my = -9999, sx = -9999, sy = -9999, last = 0, frame = 0, rgb = '130,164,245';
+  function readColour() {
+    const v = getComputedStyle(document.documentElement).getPropertyValue('--indigo').trim();
+    const m = /^#([0-9a-f]{6})$/i.exec(v);
+    if (m) rgb = parseInt(m[1].slice(0, 2), 16) + ',' + parseInt(m[1].slice(2, 4), 16) + ',' + parseInt(m[1].slice(4), 16);
+  }
+  function size() {
+    w = window.innerWidth;
+    h = window.innerHeight;
+    c.width = w;
+    c.height = h;
+    const n = Math.round(Math.min(60, (w * h) / 22000));
+    pts = [];
+    for (let i = 0; i < n; i++) {
+      pts.push({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - 0.5) * 0.28, vy: (Math.random() - 0.5) * 0.28, r: Math.random() * 1.3 + 0.5 });
+    }
+  }
+  let rt = 0;
+  window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(size, 150); });
+  window.addEventListener('pointermove', function (e) {
+    mx = e.clientX;
+    my = e.clientY;
+    if (sx < -9000) { sx = mx; sy = my; spot.classList.add('on'); }
+  }, { passive: true });
+  document.addEventListener('pointerleave', function () { mx = -9999; my = -9999; spot.classList.remove('on'); sx = -9999; });
+  let light = false;
+  function readTheme() { light = document.documentElement.getAttribute('data-theme') === 'light'; }
+  function spotLoop() {
+    requestAnimationFrame(spotLoop);
+    if (sx < -9000) return;
+    sx += (mx - sx) * 0.1;
+    sy += (my - sy) * 0.1;
+    spot.style.transform = 'translate3d(' + sx.toFixed(1) + 'px,' + sy.toFixed(1) + 'px,0)';
+  }
+  function loop(t) {
+    requestAnimationFrame(loop);
+    if (t - last < 32) return;
+    const dt = Math.min(64, t - last) / 16.7;
+    last = t;
+    frame++;
+    if (frame % 60 === 1) { readColour(); readTheme(); }
+    const k = light ? 2 : 1;
+    const link = 115, mlink = 160, l2 = link * link, near = l2 * 0.45;
+    ctx.clearRect(0, 0, w, h);
+    ctx.lineWidth = 1;
+    const nearPath = new Path2D(), farPath = new Path2D();
+    const hit = [];
+    for (let i = 0; i < pts.length; i++) {
+      const p = pts[i];
+      p.x += p.vx * dt;
+      p.y += p.vy * dt;
+      if (p.x < -10) p.x = w + 10; else if (p.x > w + 10) p.x = -10;
+      if (p.y < -10) p.y = h + 10; else if (p.y > h + 10) p.y = -10;
+      const dx = mx - p.x, dy = my - p.y, dm = Math.sqrt(dx * dx + dy * dy);
+      if (dm < mlink) { p.x += dx * 0.006 * dt; p.y += dy * 0.006 * dt; hit.push([p, dm]); }
+      for (let j = i + 1; j < pts.length; j++) {
+        const q = pts[j], ex = p.x - q.x, ey = p.y - q.y, d2 = ex * ex + ey * ey;
+        if (d2 < l2) {
+          const path = d2 < near ? nearPath : farPath;
+          path.moveTo(p.x, p.y);
+          path.lineTo(q.x, q.y);
+        }
+      }
+    }
+    ctx.strokeStyle = 'rgba(' + rgb + ',' + (0.1 * k).toFixed(2) + ')';
+    ctx.stroke(farPath);
+    ctx.strokeStyle = 'rgba(' + rgb + ',' + (0.22 * k).toFixed(2) + ')';
+    ctx.stroke(nearPath);
+    for (let i = 0; i < hit.length; i++) {
+      ctx.strokeStyle = 'rgba(' + rgb + ',' + ((1 - hit[i][1] / mlink) * 0.45 * (light ? 1.5 : 1)).toFixed(3) + ')';
+      ctx.beginPath();
+      ctx.moveTo(hit[i][0].x, hit[i][0].y);
+      ctx.lineTo(mx, my);
+      ctx.stroke();
+    }
+    ctx.fillStyle = 'rgba(' + rgb + ',' + (light ? 0.85 : 0.65) + ')';
+    ctx.beginPath();
+    for (let i = 0; i < pts.length; i++) {
+      ctx.moveTo(pts[i].x + pts[i].r, pts[i].y);
+      ctx.arc(pts[i].x, pts[i].y, pts[i].r, 0, 6.2832);
+    }
+    ctx.fill();
+  }
+  readColour();
+  readTheme();
+  size();
+  requestAnimationFrame(loop);
+  requestAnimationFrame(spotLoop);
+})();
+</script>
+</body>
+</html>
