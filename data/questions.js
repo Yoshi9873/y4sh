@@ -1,5 +1,3 @@
-/* All puzzle questions live here. Edit this file to add or change questions.
-   Loaded before js/app-1.js, which reads window.SITE_QUESTIONS. */
 window.SITE_QUESTIONS = (function () {
   var PROBLEMS = [
     { q: "In the Tower of Hanoi puzzle you move a stack of 8 differently sized discs from one peg to another, moving one disc at a time, and never putting a larger disc on a smaller one. You have three pegs. What's the minimum number of moves needed?", answer: 255, a: "255. To move n discs, you must first move the top n-1 discs out of the way, move the biggest disc, then move those n-1 discs back on top. So moves(n) = 2 &times; moves(n-1) + 1. Starting at 1 disc = 1 move: 3, 7, 15, 31, 63, 127, 255 for 8 discs. The rule is 2 multiplied by itself n times, minus 1: 2&#8312; - 1 = 255.", d: "medium", hint: "To move the biggest disc, where must all the others be? Try 1, 2, 3 discs and look for the pattern." },
