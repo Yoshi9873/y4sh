@@ -1,0 +1,25 @@
+  :root { --ease-out: cubic-bezier(.22, 1, .36, 1); --ease-spring: cubic-bezier(.34, 1.56, .64, 1); --dur-fast: .14s; --dur-med: .28s; }
+  *, *::before, *::after { touch-action: manipulation; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  button, [role="button"], summary, .link-row, .countdown, .xm-chip, .sb-badge { -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none; }
+  button, [role="button"], summary { -webkit-user-select: none; user-select: none; }
+  :where(button, [role="button"], .link-row, .countdown, .xm-chip, .sb-badge) {
+    transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-med) var(--ease-out), border-color var(--dur-med) var(--ease-out), color var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out), opacity var(--dur-med) var(--ease-out), filter var(--dur-med) var(--ease-out);
+  }
+  :where(button, [role="button"], .sb-badge):where(:not(:disabled)):active { transform: scale(.96); }
+  :where(.link-row, .countdown[role="button"]):active { transform: scale(.985); }
+  .theme-toggle:active, .shade-toggle:active { transform: scale(.9); }
+  :where(a, button, [role="button"], summary, [tabindex]):focus-visible { outline: 2px solid var(--indigo); outline-offset: 3px; }
+  @media (pointer: coarse) {
+    #shade-hex { font-size: 16px; }
+    #volume-icon, #sfx-toggle, #np-playpause, #hint-btn, #give-up-btn, #yday-toggle, .visit-retry, .glass-username { position: relative; }
+    #volume-icon::after, #sfx-toggle::after, #np-playpause::after { content: ''; position: absolute; inset: -9px; }
+    #hint-btn::after, #give-up-btn::after, #yday-toggle::after, .visit-retry::after { content: ''; position: absolute; inset: -6px -8px; }
+    .glass-username::after { content: ''; position: absolute; inset: -12px -8px; }
+    #theme-toggle::after, #shade-toggle::after { content: ''; position: absolute; inset: -5px; border-radius: 50%; }
+    .sb-badge::after { content: ''; position: absolute; inset: 0 -4px; }
+    .xm-chip::after { content: ''; position: absolute; inset: -6px 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  }
